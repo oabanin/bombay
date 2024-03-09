@@ -1,0 +1,15 @@
+@use '../../../styles/utils/mixins';
+
+.container {
+  display: flex;
+  min-width: mixins.rem(162px);
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-dark);
+  padding: mixins.rem(22px);
+  border: mixins.rem(2px) solid var(--color-brown-light);
+  border-radius: mixins.rem(35px);
+  &:disabled {
+    opacity: 0.4;
+  }
+}

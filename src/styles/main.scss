@@ -1,0 +1,94 @@
+@use 'utils/variables';
+@use 'utils/mixins';
+
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box; /* Firefox, other Gecko */
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+:root {
+  --color-white: rgb(255, 255, 255);
+  --color-dark: rgb(7, 7, 7);
+  --color-black: rgb(22, 22, 22);
+  --color-brown-light: rgb(207, 180, 134);
+
+  --color-green: rgb(74, 125, 65);
+  --color-green-lighter: rgb(111, 194, 96);
+  --color-green-darker: rgb(46, 68, 46);
+
+  --color-red: rgb(132, 16, 50);
+  --color-red-lighter: rgb(182, 24, 62);
+  --color-red-darker: rgb(84, 20, 44);
+
+  --color-blue: rgb(60, 78, 147);
+  --color-blue-lighter: rgb(78, 127, 230);
+  --color-blue-darker: rgb(38, 36, 79);
+
+  --color-chip-blue: rgb(51, 93, 246);
+  --color-bg-start: rgb(72, 72, 72);
+  --color-bg-end: rgb(29, 29, 29);
+
+  --font-size-2xl: #{mixins.rem(42px)};
+  --font-size-xl: #{mixins.rem(28px)};
+  --font-size-lg: #{mixins.rem(22px)};
+  --font-size-m: #{mixins.rem(16px)};
+  --font-size-s: #{mixins.rem(14px)};
+
+  font-family: 'Cabin', sans-serif;
+  font-weight: 400;
+  font-size: variables.$html-font-size-vw;
+  font-synthesis: none;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  text-decoration: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  font-weight: normal;
+}
+
+img {
+  display: block;
+}
+
+body {
+  color: var(--color-white);
+  background: linear-gradient(to bottom, var(--color-bg-start), var(--color-bg-end));
+  padding: 0;
+  margin: 0;
+  display: flex;
+  min-width: 320px;
+  min-height: 100vh;
+  text-transform: uppercase;
+}
+
+#root {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}

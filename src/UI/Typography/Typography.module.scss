@@ -1,0 +1,37 @@
+.text {
+  text-transform: uppercase;
+  font-weight: 700;
+
+  &.small {
+    font-size: var(--font-size-s);
+  }
+
+  &.medium {
+    font-size: var(--font-size-m);
+  }
+  &.large {
+    font-size: var(--font-size-lg);
+  }
+  &.xl {
+    font-size: var(--font-size-xl);
+  }
+  &.xl2 {
+    font-size: var(--font-size-2xl);
+  }
+
+  &.white {
+    color: var(--color-white);
+  }
+  &.brown {
+    color: var(--color-brown-light);
+  }
+  &.red {
+    color: var(--color-red-lighter);
+  }
+  &.green {
+    color: var(--color-green-lighter);
+  }
+  &.blue {
+    color: var(--color-blue-lighter);
+  }
+}

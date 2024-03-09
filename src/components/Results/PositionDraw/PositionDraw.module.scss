@@ -1,0 +1,26 @@
+@use '../../../styles/utils/mixins';
+
+.container {
+  display: flex;
+  letter-spacing: mixins.rem(1.3px);
+
+  min-height: mixins.rem(52px);
+}
+
+.vs {
+  text-transform: lowercase;
+  padding: 0 mixins.rem(62px);
+}
+
+.draw {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+}
+
+.computerPosition {
+  justify-self: end;
+}
+
+.playerPosition {
+  justify-self: start;
+}

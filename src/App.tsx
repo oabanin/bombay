@@ -1,31 +1,17 @@
-import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
+import { Header } from './UI/Header/Header.tsx';
+import { Positions } from './components/Positions/Positions.tsx';
 import s from './App.module.scss';
-
+import { Results } from './components/Results/Results.tsx';
+import { Play } from './components/Play/Play.tsx';
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className={s.logo} alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className={s.card}>
-        <button className={s.button} onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">Click on the Vite and React logos to learn more</p>
+      <Header />
+      <main className={s.main}>
+        <Results />
+        <Positions />
+        <Play />
+      </main>
     </>
   );
 }

@@ -1,0 +1,21 @@
+@use '../../styles/utils/variables';
+@use '../../styles/utils/mixins';
+
+.container {
+  position: sticky;
+  display: flex;
+  justify-content: center;
+  background: var(--color-black);
+  width: 100%;
+  padding: mixins.rem(5px) mixins.rem(20px);
+
+  @media (min-width: variables.$breakpoint-md) {
+    padding-right: mixins.rem(78px);
+    padding-left: mixins.rem(20px);
+  }
+}
+
+.centerItem {
+  padding-left: mixins.rem(54px);
+  padding-right: mixins.rem(54px);
+}
