@@ -11,5 +11,6 @@
   border-radius: mixins.rem(35px);
   &:disabled {
     opacity: 0.4;
+    cursor: default;
   }
 }

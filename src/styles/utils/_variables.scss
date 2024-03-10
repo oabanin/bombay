@@ -1,3 +1,5 @@
 $html-font-size: 16px;
-$html-font-size-vw: 1.4059vw;
+//$html-font-size-vw: 1.4059vw;
+//calc(3vw + 3vh)
+$html-font-size-vw: calc(1.4059vmin + 0.433rem);
 $breakpoint-md: 768px;

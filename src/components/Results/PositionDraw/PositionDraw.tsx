@@ -1,23 +1,29 @@
 import s from './PositionDraw.module.scss';
 import { Typography } from '../../../UI/Typography/Typography.tsx';
 import { PositionTitle } from './PositionTitle/PositionTitle.tsx';
-import { EPOSITIONS } from '../../../constants/specifications.ts';
+import { ENUM_GAME_STATE } from '../../../constants/specifications.ts';
+import { useSelector } from 'react-redux';
+import { selectComputerPosition, selectPlayerPosition, selectGameState } from '../../../store/selectors.ts';
 
 export const PositionDraw = () => {
-  const isDraw = false;
+  const gameState = useSelector(selectGameState);
+  const computerPosition = useSelector(selectComputerPosition);
+  const { position, result } = useSelector(selectPlayerPosition);
+
   return (
     <div className={s.container}>
-      {isDraw ? (
+      {gameState === ENUM_GAME_STATE.game && computerPosition && (
         <div className={s.draw}>
-          <PositionTitle className={s.computerPosition} text={EPOSITIONS.scissors} />
+          <PositionTitle className={s.computerPosition} text={computerPosition} />
           <Typography className={s.vs} size="2xl" color="brown">
             vs
           </Typography>
-          <PositionTitle className={s.playerPosition} text={EPOSITIONS.paper} />
+          <PositionTitle className={s.playerPosition} text={position} />
         </div>
-      ) : (
+      )}
+      {gameState === ENUM_GAME_STATE.result && (
         <Typography color="green" size="2xl">
-          {`${EPOSITIONS.paper} won`}
+          {position} {result}
         </Typography>
       )}
     </div>

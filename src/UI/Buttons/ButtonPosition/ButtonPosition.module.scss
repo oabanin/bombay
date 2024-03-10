@@ -49,7 +49,6 @@ $px: mixins.rem(2px);
 
   &:disabled {
     pointer-events: none;
-    opacity: 0.4;
   }
 }
 
@@ -61,6 +60,8 @@ $px: mixins.rem(2px);
   display: flex;
   justify-content: center;
   align-items: center;
+  width: mixins.rem(40px);
+  height: mixins.rem(40px);
 }
 
 .text {

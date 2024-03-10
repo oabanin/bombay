@@ -20,23 +20,26 @@
   --color-white: rgb(255, 255, 255);
   --color-dark: rgb(7, 7, 7);
   --color-black: rgb(22, 22, 22);
-  --color-brown-light: rgb(207, 180, 134);
+  --color-brown-light: rgb(213, 179, 126);
 
-  --color-green: rgb(74, 125, 65);
-  --color-green-lighter: rgb(111, 194, 96);
-  --color-green-darker: rgb(46, 68, 46);
+  //--color-green: hsla(111, 32%, 37%, 1);
+  --color-green: rgb(23, 126, 58);
+  --color-green-lighter: rgb(20, 195, 89);
+  --color-green-darker: rgb(27, 56, 29);
 
-  --color-red: rgb(132, 16, 50);
-  --color-red-lighter: rgb(182, 24, 62);
-  --color-red-darker: rgb(84, 20, 44);
+  //--color-red: hsla(342, 78%, 29%, 1);
+  --color-red: rgb(155, 13, 48);
+  --color-red-lighter: rgb(227, 20, 66);
+  --color-red-darker: rgb(80, 8, 31);
 
-  --color-blue: rgb(60, 78, 147);
-  --color-blue-lighter: rgb(78, 127, 230);
-  --color-blue-darker: rgb(38, 36, 79);
+  //--color-blue: hsla(228, 42%, 41%, 1);
+  --color-blue: rgb(47, 77, 151);
+  --color-blue-lighter: rgb(39, 128, 234);
+  --color-blue-darker: rgb(33, 31, 79);
 
-  --color-chip-blue: rgb(51, 93, 246);
+  --color-chip-blue: rgb(34, 94, 255);
   --color-bg-start: rgb(72, 72, 72);
-  --color-bg-end: rgb(29, 29, 29);
+  --color-bg-end: rgb(32, 32, 32);
 
   --font-size-2xl: #{mixins.rem(42px)};
   --font-size-xl: #{mixins.rem(28px)};
@@ -76,7 +79,6 @@ body {
   padding: 0;
   margin: 0;
   display: flex;
-  min-width: 320px;
   min-height: 100vh;
   text-transform: uppercase;
 }
