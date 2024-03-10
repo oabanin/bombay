@@ -1,7 +1,0 @@
-@use '../../styles/utils/mixins';
-
-.container {
-  display: flex;
-  justify-content: center;
-  margin-top: mixins.rem(74px);
-}

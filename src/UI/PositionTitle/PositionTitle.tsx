@@ -1,8 +1,7 @@
-import s from './PositionTitle.module.scss';
-import { Typography } from '../../../../UI/Typography/Typography.tsx';
-import { TypeColor } from '../../../../UI/Buttons/ButtonPosition/ButtonPosition.tsx';
 import { ReactNode } from 'react';
-import { clsx } from 'clsx';
+
+import { TypeColor } from '../Buttons/ButtonPosition/ButtonPosition.tsx';
+import { Typography } from '../Typography/Typography.tsx';
 export const PositionTitle = ({
   text,
   className,
@@ -13,7 +12,7 @@ export const PositionTitle = ({
   className?: string;
 }) => {
   return (
-    <div className={clsx(s.container, className)}>
+    <div className={className}>
       <Typography size="2xl" color={color}>
         {text}
       </Typography>

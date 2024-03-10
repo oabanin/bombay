@@ -1,11 +1,4 @@
-@use '../../../styles/utils/mixins';
-
-.container {
-  display: flex;
-  letter-spacing: mixins.rem(1.3px);
-
-  min-height: mixins.rem(52px);
-}
+@use '../../styles/utils/mixins';
 
 .vs {
   text-transform: lowercase;

@@ -1,14 +1,13 @@
-import s from './Positions.module.scss';
-
-import { ButtonPosition } from '../../UI/Buttons/ButtonPosition/ButtonPosition.tsx';
-
-import { useAppDispatch, useAppSelector } from '../../store/hooks.ts';
-import { addBet } from '../../store/gameSlice.ts';
 import { useCallback } from 'react';
 import { useSelector } from 'react-redux';
-import { selectBalanceCalculated, selectBets, selectPlayerPosition, selectGameState } from '../../store/selectors.ts';
+
 import { ENUM_GAME_STATE, ENUM_POSITIONS, MAX_POSITIONS, POSITION_ITEMS } from '../../constants/specifications.ts';
+import { addBet } from '../../store/gameSlice.ts';
+import { useAppDispatch, useAppSelector } from '../../store/hooks.ts';
+import { selectBalanceCalculated, selectBets, selectGameState, selectPlayerPosition } from '../../store/selectors.ts';
+import { ButtonPosition } from '../../UI/Buttons/ButtonPosition/ButtonPosition.tsx';
 import { getCoinValue } from '../../utils/getCoinValue.tsx';
+import s from './Positions.module.scss';
 
 export const Positions = () => {
   const dispatch = useAppDispatch();
@@ -31,7 +30,6 @@ export const Positions = () => {
           (Object.keys(bets).length >= MAX_POSITIONS && !bets[item.text]) ||
           gameState !== ENUM_GAME_STATE.placeBet ||
           balance <= 0;
-
         return (
           <ButtonPosition
             active={gameState === ENUM_GAME_STATE.result && position === item.text}

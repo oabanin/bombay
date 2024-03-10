@@ -1,17 +1,17 @@
 import { memo, ReactNode } from 'react';
-import s from './HeaderItem.module.scss';
-import { Typography } from '../../Typography/Typography.tsx';
+
 import { clsx } from 'clsx';
+
+import { Typography } from '../Typography/Typography.tsx';
+import s from './HeaderItem.module.scss';
 export const HeaderItem = memo(
-  ({ title, value, className }: { title: ReactNode; value: ReactNode; className?: string }) => {
+  ({ title, counter, className }: { title: ReactNode; counter: ReactNode; className?: string }) => {
     return (
       <div className={clsx(s.container, className)}>
         <Typography as="span" color="brown">
           {title}:{' '}
         </Typography>
-        <Typography as="span" color="white">
-          {value}
-        </Typography>
+        {counter}
       </div>
     );
   },

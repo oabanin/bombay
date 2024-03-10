@@ -1,5 +1,6 @@
-import s from './ButtonPlay.module.scss';
 import { ReactNode } from 'react';
+
+import s from './ButtonPlay.module.scss';
 
 export const ButtonPlay = ({
   children,
@@ -7,7 +8,7 @@ export const ButtonPlay = ({
   disabled,
 }: {
   children: ReactNode;
-  onClick: () => void;
+  onClick?: () => void;
   disabled?: boolean;
 }) => {
   return (

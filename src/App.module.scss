@@ -6,6 +6,34 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-top: mixins.rem(119px);
-  padding-bottom: mixins.rem(46px);
+  padding: mixins.rem(46px) 20px mixins.rem(46px);
+}
+
+.draw {
+  padding-top: mixins.rem(73px);
+  min-height: mixins.rem(125px);
+  letter-spacing: mixins.rem(1.3px);
+}
+
+.results {
+  min-height: mixins.rem(36px);
+  padding-top: mixins.rem(9px);
+  letter-spacing: mixins.rem(1.2px);
+}
+
+.pickPositions {
+  text-align: center;
+  grid-column: span 3;
+  min-height: mixins.rem(48px);
+  padding-top: mixins.rem(21px);
+  padding-bottom: mixins.rem(8px);
+}
+
+.positions {
+  margin-top: mixins.rem(24px);
+  max-width: mixins.rem(532px);
+}
+
+.play {
+  margin-top: mixins.rem(74px);
 }
