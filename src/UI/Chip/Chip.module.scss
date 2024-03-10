@@ -2,16 +2,16 @@
 
 .container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-
-  border-radius: 100%;
-  font-weight: 700;
-  border: mixins.rem(4px) solid var(--color-chip-blue);
-  background-color: var(--color-white);
   width: mixins.rem(40px);
   height: mixins.rem(40px);
+  align-items: center;
+  justify-content: center;
+  border: mixins.rem(4px) solid var(--color-chip-blue);
+
+  border-radius: 100%;
+  background-color: var(--color-white);
   color: var(--color-black);
+  font-weight: 700;
 }
 
 .lowercase {

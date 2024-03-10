@@ -19,25 +19,32 @@ export enum ENUM_POSITIONS {
   rock = 'rock',
   paper = 'paper',
   scissors = 'scissors',
+  // test = 'test',
 }
-export const POSITION_CHOICES = [ENUM_POSITIONS.rock, ENUM_POSITIONS.paper, ENUM_POSITIONS.scissors];
 
 export const POSITION_ITEMS = [
   {
-    text: ENUM_POSITIONS.rock,
+    position: ENUM_POSITIONS.rock,
     color: 'blue' as const,
   },
   {
-    text: ENUM_POSITIONS.paper,
+    position: ENUM_POSITIONS.paper,
     color: 'green' as const,
   },
   {
-    text: ENUM_POSITIONS.scissors,
+    position: ENUM_POSITIONS.scissors,
     color: 'red' as const,
   },
+  // {
+  //   position: ENUM_POSITIONS.test,
+  //   color: 'red' as const,
+  // },
 ];
+
 export const WIN_MAP = {
   rock: [ENUM_POSITIONS.scissors],
   paper: [ENUM_POSITIONS.rock],
   scissors: [ENUM_POSITIONS.paper],
+  // test: [ENUM_POSITIONS.paper, ENUM_POSITIONS.rock, ENUM_POSITIONS.paper],
 };
+export const COMPUTER_POSITION_CHOICES = POSITION_ITEMS.map(({ position }) => position);

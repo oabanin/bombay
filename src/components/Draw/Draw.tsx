@@ -34,7 +34,7 @@ const DrawResult = () => {
   const { position, result } = useSelector(selectPlayerPosition);
 
   const color = useMemo(() => {
-    return POSITION_ITEMS.find((item) => item.text === position);
+    return POSITION_ITEMS.find((item) => item.position === position);
   }, [position]);
   return (
     <Typography color={color?.color} size="2xl">

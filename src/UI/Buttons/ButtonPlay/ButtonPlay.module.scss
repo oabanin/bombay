@@ -3,14 +3,14 @@
 .container {
   display: flex;
   min-width: mixins.rem(162px);
-  justify-content: center;
   align-items: center;
-  background-color: var(--color-dark);
+  justify-content: center;
   padding: mixins.rem(22px);
   border: mixins.rem(2px) solid var(--color-brown-light);
   border-radius: mixins.rem(35px);
+  background-color: var(--color-dark);
   &:disabled {
-    opacity: 0.4;
     cursor: default;
+    opacity: 0.4;
   }
 }

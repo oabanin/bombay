@@ -1,27 +1,27 @@
 @use '../../../styles/utils/mixins';
-$px: mixins.rem(2px);
+$px: mixins.rem(4px);
 
 .container {
-  border-radius: mixins.rem(6px);
+  position: relative;
+  display: flex;
+  width: mixins.rem(165px);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: mixins.rem(24px) mixins.rem(12px) mixins.rem(20px);
   border-width: mixins.rem(2px);
   border-style: solid;
-  width: mixins.rem(165px);
-  padding: mixins.rem(24px) mixins.rem(12px) mixins.rem(20px);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  border-radius: mixins.rem(6px);
   gap: mixins.rem(6px);
-  position: relative;
   &.active {
     &:before {
-      content: '';
+      position: absolute;
+      top: mixins.rem(-2px);
+      left: mixins.rem(-2px);
       width: calc(100% + $px);
       height: calc(100% + $px);
-      position: absolute;
-      top: mixins.rem(-1px);
-      left: mixins.rem(-1px);
       border-radius: mixins.rem(6px);
+      content: '';
     }
   }
 
@@ -58,10 +58,10 @@ $px: mixins.rem(2px);
 
 .chipContainer {
   display: flex;
-  justify-content: center;
-  align-items: center;
   width: mixins.rem(40px);
   height: mixins.rem(40px);
+  align-items: center;
+  justify-content: center;
 }
 
 .text {

@@ -1,8 +1,8 @@
 @use './styles/utils/mixins';
 
 .main {
-  flex: 1;
   display: flex;
+  flex: 1;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -10,8 +10,8 @@
 }
 
 .draw {
-  padding-top: mixins.rem(73px);
   min-height: mixins.rem(125px);
+  padding-top: mixins.rem(73px);
   letter-spacing: mixins.rem(1.3px);
 }
 
@@ -22,16 +22,16 @@
 }
 
 .pickPositions {
-  text-align: center;
-  grid-column: span 3;
   min-height: mixins.rem(48px);
   padding-top: mixins.rem(21px);
   padding-bottom: mixins.rem(8px);
+  grid-column: span 3;
+  text-align: center;
 }
 
 .positions {
-  margin-top: mixins.rem(24px);
   max-width: mixins.rem(532px);
+  margin-top: mixins.rem(24px);
 }
 
 .play {

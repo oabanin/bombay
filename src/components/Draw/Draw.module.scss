@@ -1,8 +1,8 @@
 @use '../../styles/utils/mixins';
 
 .vs {
-  text-transform: lowercase;
   padding: 0 mixins.rem(62px);
+  text-transform: lowercase;
 }
 
 .draw {

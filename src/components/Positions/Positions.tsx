@@ -27,18 +27,18 @@ export const Positions = () => {
     <div className={s.container}>
       {POSITION_ITEMS.map((item, index) => {
         const isDisabled =
-          (Object.keys(bets).length >= MAX_POSITIONS && !bets[item.text]) ||
+          (Object.keys(bets).length >= MAX_POSITIONS && !bets[item.position]) ||
           gameState !== ENUM_GAME_STATE.placeBet ||
           balance <= 0;
         return (
           <ButtonPosition
-            active={gameState === ENUM_GAME_STATE.result && position === item.text}
+            active={gameState === ENUM_GAME_STATE.result && position === item.position}
             disabled={isDisabled}
             onClick={handleClick}
-            key={`${index}${item.text}`}
+            key={`${index}${item.position}`}
             color={item.color}
-            text={item.text}
-            bet={bets[item.text] && getCoinValue(bets[item.text])}
+            text={item.position}
+            bet={bets[item.position] && getCoinValue(bets[item.position])}
           />
         );
       })}

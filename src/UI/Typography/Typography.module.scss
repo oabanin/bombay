@@ -1,6 +1,6 @@
 .text {
-  text-transform: uppercase;
   font-weight: 700;
+  text-transform: uppercase;
 
   &.small {
     font-size: var(--font-size-s);

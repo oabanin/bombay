@@ -4,14 +4,14 @@
 *,
 *:after,
 *:before {
-  box-sizing: border-box;
+
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; /* Safari/Chrome, other WebKit */ /* Firefox, other Gecko */
   -webkit-font-smoothing: antialiased;
   font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-
-  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-  -moz-box-sizing: border-box; /* Firefox, other Gecko */
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  text-rendering: optimizeLegibility;
   -webkit-user-drag: none;
   user-select: none;
 }
@@ -22,17 +22,23 @@
   --color-black: rgb(22, 22, 22);
   --color-brown-light: rgb(213, 179, 126);
 
+  //--color-blue: hsla(228, 42%, 41%, 1);
+
   //--color-green: hsla(111, 32%, 37%, 1);
+
+  //--color-red: hsla(342, 78%, 29%, 1);
+
+  font-family: 'Cabin', sans-serif;
+  font-size: variables.$html-font-size-vw;
+  -moz-osx-font-smoothing: grayscale;
+  font-synthesis: none;
+  font-weight: 400;
   --color-green: rgb(23, 126, 58);
   --color-green-lighter: rgb(20, 195, 89);
   --color-green-darker: rgb(27, 56, 29);
-
-  //--color-red: hsla(342, 78%, 29%, 1);
   --color-red: rgb(155, 13, 48);
   --color-red-lighter: rgb(227, 20, 66);
   --color-red-darker: rgb(80, 8, 31);
-
-  //--color-blue: hsla(228, 42%, 41%, 1);
   --color-blue: rgb(47, 77, 151);
   --color-blue-lighter: rgb(39, 128, 234);
   --color-blue-darker: rgb(33, 31, 79);
@@ -46,12 +52,6 @@
   --font-size-lg: #{mixins.rem(22px)};
   --font-size-m: #{mixins.rem(16px)};
   --font-size-s: #{mixins.rem(14px)};
-
-  font-family: 'Cabin', sans-serif;
-  font-weight: 400;
-  font-size: variables.$html-font-size-vw;
-  font-synthesis: none;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 a {
@@ -74,23 +74,23 @@ img {
 }
 
 body {
-  color: var(--color-white);
-  background: linear-gradient(to bottom, var(--color-bg-start), var(--color-bg-end));
-  padding: 0;
-  margin: 0;
   display: flex;
   min-height: 100vh;
+  padding: 0;
+  margin: 0;
+  background: linear-gradient(to bottom, var(--color-bg-start), var(--color-bg-end));
+  color: var(--color-white);
   text-transform: uppercase;
 }
 
 #root {
-  flex: 1;
   display: flex;
+  flex: 1;
   flex-direction: column;
 }
 
 button {
-  border: 0;
   padding: 0;
+  border: 0;
   cursor: pointer;
 }
