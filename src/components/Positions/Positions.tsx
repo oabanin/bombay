@@ -38,7 +38,7 @@ export const Positions = () => {
             key={`${index}${item.position}`}
             color={item.color}
             text={item.position}
-            bet={bets[item.position] && getCoinValue(bets[item.position])}
+            bet={bets[item.position] ? getCoinValue(bets[item.position]) : undefined}
           />
         );
       })}

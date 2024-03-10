@@ -17,7 +17,7 @@ export const ButtonPosition = memo(
     color = 'green',
   }: {
     text: string;
-    bet: string;
+    bet?: string;
     active?: boolean;
     disabled?: boolean;
     onClick?: (value: string) => void;
