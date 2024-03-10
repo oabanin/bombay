@@ -4,11 +4,11 @@
 *,
 *:after,
 *:before {
-
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box; /* Safari/Chrome, other WebKit */ /* Firefox, other Gecko */
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   font-smoothing: antialiased;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   text-rendering: optimizeLegibility;
@@ -23,16 +23,9 @@
   --color-brown-light: rgb(213, 179, 126);
 
   //--color-blue: hsla(228, 42%, 41%, 1);
-
   //--color-green: hsla(111, 32%, 37%, 1);
-
   //--color-red: hsla(342, 78%, 29%, 1);
 
-  font-family: 'Cabin', sans-serif;
-  font-size: variables.$html-font-size-vw;
-  -moz-osx-font-smoothing: grayscale;
-  font-synthesis: none;
-  font-weight: 400;
   --color-green: rgb(23, 126, 58);
   --color-green-lighter: rgb(20, 195, 89);
   --color-green-darker: rgb(27, 56, 29);
@@ -47,30 +40,23 @@
   --color-bg-start: rgb(72, 72, 72);
   --color-bg-end: rgb(32, 32, 32);
 
-  --font-size-2xl: #{mixins.rem(42px)};
-  --font-size-xl: #{mixins.rem(28px)};
-  --font-size-lg: #{mixins.rem(22px)};
+  --font-size-4xl: #{mixins.rem(42px)};
+  --font-size-3xl: #{mixins.rem(28px)};
+  --font-size-2xl: #{mixins.rem(24px)};
+  --font-size-xl: #{mixins.rem(22px)};
+  --font-size-lg: #{mixins.rem(18px)};
   --font-size-m: #{mixins.rem(16px)};
   --font-size-s: #{mixins.rem(14px)};
+
+  --font-family-primary: 'Cabin', sans-serif;
+  --font-family-secondary: 'Cabin', sans-serif;
 }
 
-a {
-  text-decoration: inherit;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-  margin: 0;
-  font-weight: normal;
-}
-
-img {
-  display: block;
+html {
+  font-family: var(--font-family-primary);
+  font-size: variables.$html-font-size-vw;
+  font-synthesis: none;
+  font-weight: 400;
 }
 
 body {

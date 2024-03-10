@@ -6,19 +6,22 @@ import { TypeColor } from '../Buttons/ButtonPosition/ButtonPosition.tsx';
 import s from './Typography.module.scss';
 
 type TypeTypography = 'h3' | 'h2' | 'h1' | 'div' | 'span';
-type TypeSize = 'small' | 'medium' | 'large' | 'xl' | '2xl';
+type TypeSize = 'small' | 'medium' | 'large' | 'xl' | '2xl' | '3xl' | '4xl';
+type TypeFont = 'primary' | 'secondary';
 export const Typography = memo(
   ({
     as = 'div',
     children,
     color,
     size = 'small',
+    font = 'primary',
     className,
   }: {
     as?: TypeTypography;
     children: ReactNode;
     color?: TypeColor;
     size?: TypeSize;
+    font?: TypeFont;
     className?: string;
   }) => {
     const Tag = as;
@@ -31,11 +34,14 @@ export const Typography = memo(
           size === 'large' && s.large,
           size === 'xl' && s.xl,
           size === '2xl' && s.xl2,
+          size === '3xl' && s.xl3,
+          size === '4xl' && s.xl4,
           color === 'brown' && s.brown,
           color === 'white' && s.white,
           color === 'green' && s.green,
           color === 'blue' && s.blue,
           color === 'red' && s.red,
+          font === 'secondary' && s.fontSecondary,
           className,
         )}
       >

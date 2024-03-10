@@ -1,4 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import numeral from 'numeral';
+
 import {
   BET_STEP,
   ENUM_GAME_STATE,
@@ -6,10 +8,9 @@ import {
   ENUM_RESULTS,
   INITIAL_BALANCE,
 } from '../constants/specifications.ts';
-import numeral from 'numeral';
+import { calculateReturn } from '../utils/calculateReturn.ts';
 import { calculateTotalBet } from '../utils/calculateTotalBet.ts';
 import { comparePositions } from '../utils/comparePositions.ts';
-import { calculateReturn } from '../utils/calculateReturn.ts';
 
 export interface GameState {
   gameState: ENUM_GAME_STATE;

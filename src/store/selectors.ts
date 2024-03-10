@@ -1,10 +1,10 @@
 import { createSelector } from '@reduxjs/toolkit';
-
-import { RootState } from './store';
 import numeral from 'numeral';
+
+import { ENUM_POSITIONS } from '../constants/specifications.ts';
 import { calculateTotalBet } from '../utils/calculateTotalBet.ts';
 import { comparePositions } from '../utils/comparePositions.ts';
-import { ENUM_POSITIONS } from '../constants/specifications.ts';
+import { RootState } from './store';
 export const selectBets = (state: RootState) => state.game.bets;
 const selectBalance = (state: RootState) => state.game.balance;
 export const selectGameState = (state: RootState) => state.game.gameState;

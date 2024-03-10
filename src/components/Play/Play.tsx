@@ -48,7 +48,7 @@ const ButtonPlayContainer = memo(
   ({ text, isDisabled, handlePlay }: { text: string; isDisabled: boolean; handlePlay: () => void }) => {
     return (
       <ButtonPlay onClick={handlePlay} disabled={isDisabled}>
-        <Typography color="brown" size="large">
+        <Typography color="brown" size="xl">
           {text}
         </Typography>
       </ButtonPlay>

@@ -13,7 +13,7 @@ export const PositionTitle = ({
 }) => {
   return (
     <div className={className}>
-      <Typography size="2xl" color={color}>
+      <Typography size="4xl" color={color}>
         {text}
       </Typography>
     </div>

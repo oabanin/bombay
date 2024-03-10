@@ -2,6 +2,9 @@
 @use '../../styles/utils/mixins';
 
 .container {
+  position: sticky;
+  z-index: 1;
+  top: 0;
   display: grid;
   width: 100%;
   padding: mixins.rem(5px) mixins.rem(12px);

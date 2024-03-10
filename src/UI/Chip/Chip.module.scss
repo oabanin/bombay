@@ -2,18 +2,21 @@
 
 .container {
   display: flex;
-  width: mixins.rem(40px);
-  height: mixins.rem(40px);
+  width: 100%;
+  max-width: mixins.rem(42px);
+  height: 100%;
+  max-height: mixins.rem(42px);
   align-items: center;
   justify-content: center;
-  border: mixins.rem(4px) solid var(--color-chip-blue);
-
+  border: mixins.rem(5px) solid var(--color-chip-blue);
   border-radius: 100%;
   background-color: var(--color-white);
   color: var(--color-black);
+  font-family: var(--font-family-secondary);
+  font-size: var(--font-size-lg);
   font-weight: 700;
+  letter-spacing: mixins.rem(-1.4px);
 }
 
 .lowercase {
-  text-transform: lowercase;
 }

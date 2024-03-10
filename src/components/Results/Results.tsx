@@ -25,10 +25,10 @@ const ResultsText = () => {
   const isWin = result === ENUM_RESULTS.win;
   return (
     <div>
-      <Typography as="span" size="large" color="brown">
+      <Typography as="span" size="xl" color="brown">
         You {isWin ? 'win' : 'lose'}
       </Typography>{' '}
-      <Typography as="span" size="large" color="white">
+      <Typography as="span" size="xl" color="white">
         {isWin ? countWin : numeral(totalBet).format('0.00')}
       </Typography>
     </div>

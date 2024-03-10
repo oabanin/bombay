@@ -1,4 +1,4 @@
-import { memo, ReactNode } from 'react';
+import { memo } from 'react';
 
 import { clsx } from 'clsx';
 
@@ -17,7 +17,7 @@ export const ButtonPosition = memo(
     color = 'green',
   }: {
     text: string;
-    bet: ReactNode;
+    bet: string;
     active?: boolean;
     disabled?: boolean;
     onClick?: (value: string) => void;
@@ -36,7 +36,7 @@ export const ButtonPosition = memo(
         )}
       >
         <div className={s.chipContainer}>{bet && <Chip value={bet} />}</div>
-        <Typography color={color} size="large" className={s.text}>
+        <Typography font="secondary" color={color} size="2xl" className={s.text}>
           {text}
         </Typography>
       </button>

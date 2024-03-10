@@ -11,29 +11,28 @@
 
 .draw {
   min-height: mixins.rem(125px);
-  padding-top: mixins.rem(73px);
+  padding-top: mixins.rem(69px);
   letter-spacing: mixins.rem(1.3px);
 }
 
 .results {
-  min-height: mixins.rem(36px);
-  padding-top: mixins.rem(9px);
+  min-height: mixins.rem(32px);
+  padding-top: mixins.rem(5px);
   letter-spacing: mixins.rem(1.2px);
 }
 
 .pickPositions {
-  min-height: mixins.rem(48px);
-  padding-top: mixins.rem(21px);
-  padding-bottom: mixins.rem(8px);
+  min-height: mixins.rem(57px);
+  padding-top: mixins.rem(40px);
   grid-column: span 3;
   text-align: center;
 }
 
 .positions {
   max-width: mixins.rem(532px);
-  margin-top: mixins.rem(24px);
+  padding-top: mixins.rem(25px);
 }
 
 .play {
-  margin-top: mixins.rem(74px);
+  padding-top: mixins.rem(72px);
 }

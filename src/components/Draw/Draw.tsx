@@ -1,7 +1,7 @@
 import { memo, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 
-import { ENUM_GAME_STATE, POSITION_ITEMS } from '../../constants/specifications.ts';
+import { ENUM_GAME_STATE, ENUM_RESULTS, POSITION_ITEMS } from '../../constants/specifications.ts';
 import { selectComputerPosition, selectGameState, selectPlayerPosition } from '../../store/selectors.ts';
 import { PositionTitle } from '../../UI/PositionTitle/PositionTitle.tsx';
 import { Typography } from '../../UI/Typography/Typography.tsx';
@@ -22,7 +22,7 @@ const DrawTitle = () => {
   return (
     <div className={s.draw}>
       <PositionTitle className={s.computerPosition} text={computerPosition} />
-      <Typography className={s.vs} size="2xl" color="brown">
+      <Typography className={s.vs} size="4xl" color="brown">
         vs
       </Typography>
       <PositionTitle className={s.playerPosition} text={position} />
@@ -36,9 +36,22 @@ const DrawResult = () => {
   const color = useMemo(() => {
     return POSITION_ITEMS.find((item) => item.position === position);
   }, [position]);
+
+  let text = '';
+  switch (result) {
+    case ENUM_RESULTS.lose:
+      text = 'lost';
+      break;
+    case ENUM_RESULTS.win:
+      text = 'won';
+      break;
+    case ENUM_RESULTS.tie:
+      text = 'tie';
+      break;
+  }
   return (
-    <Typography color={color?.color} size="2xl">
-      {position} {result}
+    <Typography color={color?.color} size="4xl">
+      {position} {text}
     </Typography>
   );
 };

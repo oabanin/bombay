@@ -5,7 +5,6 @@
   &.small {
     font-size: var(--font-size-s);
   }
-
   &.medium {
     font-size: var(--font-size-m);
   }
@@ -17,6 +16,12 @@
   }
   &.xl2 {
     font-size: var(--font-size-2xl);
+  }
+  &.xl3 {
+    font-size: var(--font-size-3xl);
+  }
+  &.xl4 {
+    font-size: var(--font-size-4xl);
   }
 
   &.white {
@@ -33,5 +38,8 @@
   }
   &.blue {
     color: var(--color-blue-lighter);
+  }
+  &.fontSecondary {
+    font-family: var(--font-family-secondary);
   }
 }
