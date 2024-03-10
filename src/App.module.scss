@@ -1,38 +1,54 @@
 @use './styles/utils/mixins';
-
+@use './styles/utils/variables';
 .main {
   display: flex;
   flex: 1;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: mixins.rem(46px) 20px mixins.rem(46px);
+  padding: mixins.rem(20px) mixins.rem(15px);
+  @media (min-width: variables.$breakpoint-md) and (min-height: variables.$breakpoint-height) {
+    padding: mixins.rem(46px) mixins.rem(20px);
+  }
 }
 
 .draw {
-  min-height: mixins.rem(125px);
-  padding-top: mixins.rem(69px);
+  min-height: mixins.rem(60px);
   letter-spacing: mixins.rem(1.3px);
+
+  @media (min-width: variables.$breakpoint-md) and (min-height: variables.$breakpoint-height) {
+    min-height: mixins.rem(125px);
+    padding-top: mixins.rem(69px);
+  }
 }
 
 .results {
-  min-height: mixins.rem(32px);
+  min-height: mixins.rem(34px);
   padding-top: mixins.rem(5px);
   letter-spacing: mixins.rem(1.2px);
 }
 
 .pickPositions {
-  min-height: mixins.rem(57px);
-  padding-top: mixins.rem(40px);
+  min-height: mixins.rem(20px);
   grid-column: span 3;
   text-align: center;
+  @media (min-width: variables.$breakpoint-md) {
+    min-height: mixins.rem(57px);
+    padding-top: mixins.rem(40px);
+  }
 }
 
 .positions {
   max-width: mixins.rem(532px);
-  padding-top: mixins.rem(25px);
+  padding-top: mixins.rem(15px);
+  @media (min-width: variables.$breakpoint-md) {
+    padding-top: mixins.rem(25px);
+  }
 }
 
 .play {
-  padding-top: mixins.rem(72px);
+  padding-top: mixins.rem(35px);
+  @media (min-width: variables.$breakpoint-md) {
+    padding-top: mixins.rem(72px);
+  }
 }

@@ -12,8 +12,8 @@ $px: mixins.rem(4px);
   border-width: mixins.rem(3px);
   border-style: solid;
   border-radius: mixins.rem(6px);
-  gap: mixins.rem(11px);
   font-family: var(--font-family-secondary);
+  gap: mixins.rem(11px);
   &.active {
     &:before {
       position: absolute;

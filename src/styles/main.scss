@@ -22,16 +22,18 @@
   --color-black: rgb(22, 22, 22);
   --color-brown-light: rgb(213, 179, 126);
 
-  //--color-blue: hsla(228, 42%, 41%, 1);
-  //--color-green: hsla(111, 32%, 37%, 1);
-  //--color-red: hsla(342, 78%, 29%, 1);
+  //--color-blue: hsla(223, 53%, 39%, 1);
+  //--color-green: hsla(140, 69%, 29%, 1);
+  //--color-red: hsla(345, 85%, 33%, 1);
 
   --color-green: rgb(23, 126, 58);
   --color-green-lighter: rgb(20, 195, 89);
   --color-green-darker: rgb(27, 56, 29);
+
   --color-red: rgb(155, 13, 48);
   --color-red-lighter: rgb(227, 20, 66);
   --color-red-darker: rgb(80, 8, 31);
+
   --color-blue: rgb(47, 77, 151);
   --color-blue-lighter: rgb(39, 128, 234);
   --color-blue-darker: rgb(33, 31, 79);
@@ -49,14 +51,23 @@
   --font-size-s: #{mixins.rem(14px)};
 
   --font-family-primary: 'Cabin', sans-serif;
-  --font-family-secondary: 'Cabin', sans-serif;
+  --font-family-secondary: 'Mukta', sans-serif;
 }
 
 html {
   font-family: var(--font-family-primary);
-  font-size: variables.$html-font-size-vw;
+  font-size: variables.$html-font-size-vw-xsm;
   font-synthesis: none;
   font-weight: 400;
+  @media (min-width: variables.$breakpoint-sm) {
+    font-size: variables.$html-font-size-vw-sm;
+  }
+  @media (min-width: variables.$breakpoint-md) {
+    font-size: variables.$html-font-size-vw-md;
+  }
+  @media (min-width: variables.$breakpoint-lg) {
+    font-size: variables.$html-font-size-vw-lg;
+  }
 }
 
 body {
