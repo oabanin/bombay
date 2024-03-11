@@ -17,10 +17,13 @@
 }
 
 :root {
+  --color-dark-rgb: 7, 7, 7;
+  --color-brown-rgb: 213, 179, 126;
+
   --color-white: rgb(255, 255, 255);
-  --color-dark: rgb(7, 7, 7);
+  --color-dark: rgb(var(--color-dark-rgb));
   --color-black: rgb(22, 22, 22);
-  --color-brown-light: rgb(213, 179, 126);
+  --color-brown: rgb(var(--color-brown-rgb));
 
   //--color-blue: hsla(223, 53%, 39%, 1);
   //--color-green: hsla(140, 69%, 29%, 1);
@@ -86,5 +89,13 @@ body {
 button {
   padding: 0;
   border: 0;
+  -webkit-appearance: none;
   cursor: pointer;
+  font-weight: inherit;
+  outline: 0;
 }
+
+//ease-in; */
+//animation: chipSetAnimation .05s normal forwards ease-in;//animation
+
+//nimation: chipSetAnimation 0.05s normal forwards ease-in;

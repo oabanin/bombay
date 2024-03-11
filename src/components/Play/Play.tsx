@@ -1,28 +1,36 @@
 import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 
+import { gsap } from 'gsap';
+
 import { ENUM_GAME_STATE, ENUM_POSITIONS, ENUM_RESULTS } from '../../constants/specifications.ts';
 import { addWin, clear, setComputerPosition, setGameState } from '../../store/gameSlice.ts';
 import { useAppDispatch } from '../../store/hooks.ts';
 import { selectGameState, selectTotalBet } from '../../store/selectors.ts';
 import { store } from '../../store/store.ts';
 import { ButtonPlay } from '../../UI/Buttons/ButtonPlay/ButtonPlay.tsx';
-import { Typography } from '../../UI/Typography/Typography.tsx';
 import { comparePositions } from '../../utils/comparePositions.ts';
 import { getRandomPosition } from '../../utils/getRandomPosition.ts';
 import { sleep } from '../../utils/sleep.ts';
-
 export const Play = () => {
   const gameState = useSelector(selectGameState);
   const totalBet = useSelector(selectTotalBet);
   const dispatch = useAppDispatch();
 
   const handlePlay = useCallback(async () => {
+    const timeline = gsap.timeline();
+    await timeline
+      .to('#bombay-play-container', {
+        scale: 0.85,
+        duration: 0.1,
+      })
+      .to('#bombay-play-container', { scale: 1, duration: 0.1 });
     const { game } = store.getState();
     if (game.gameState === ENUM_GAME_STATE.result) {
       dispatch(clear());
       return;
     }
+
     dispatch(setGameState(ENUM_GAME_STATE.game));
     const computerPosition = getRandomPosition();
     dispatch(setComputerPosition(computerPosition));
@@ -47,11 +55,11 @@ export const Play = () => {
 const ButtonPlayContainer = memo(
   ({ text, isDisabled, handlePlay }: { text: string; isDisabled: boolean; handlePlay: () => void }) => {
     return (
-      <ButtonPlay onClick={handlePlay} disabled={isDisabled}>
-        <Typography color="brown" size="xl">
+      <div id="bombay-play-container">
+        <ButtonPlay onClick={handlePlay} disabled={isDisabled}>
           {text}
-        </Typography>
-      </ButtonPlay>
+        </ButtonPlay>
+      </div>
     );
   },
 );

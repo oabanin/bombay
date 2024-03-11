@@ -24,6 +24,7 @@ export const ButtonPosition = memo(
   }) => {
     return (
       <button
+        id="bombay-position"
         onClick={() => onClick && onClick(text)}
         disabled={disabled}
         className={clsx(

@@ -5,6 +5,7 @@ $px: mixins.rem(4px);
   position: relative;
   display: flex;
   width: mixins.rem(165px);
+  height: mixins.rem(127px);
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
@@ -14,6 +15,7 @@ $px: mixins.rem(4px);
   border-radius: mixins.rem(6px);
   font-family: var(--font-family-secondary);
   gap: mixins.rem(5px);
+
   &.active {
     &:before {
       position: absolute;

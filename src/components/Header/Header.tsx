@@ -9,7 +9,7 @@ import s from './Header.module.scss';
 
 export const Header = () => {
   return (
-    <header className={s.container}>
+    <header id="bombay-header" className={s.container}>
       <HeaderItem className={s.balance} title="Balance" counter={<Counter selector={selectBalanceCalculated} />} />
       <HeaderItem className={s.bet} title="Bet" counter={<Counter selector={selectTotalBet} />} />
       <HeaderItem className={s.win} title="Win" counter={<Counter selector={selectWin} />} />

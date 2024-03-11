@@ -7,9 +7,11 @@ import { PickPositions } from './components/PickPositions/PickPositions.tsx';
 import { Play } from './components/Play/Play.tsx';
 import { Positions } from './components/Positions/Positions.tsx';
 import { Results } from './components/Results/Results.tsx';
+import { useInitialAnimation } from './hooks/animations/useInitialAnimation.ts';
 import { store } from './store/store.ts';
 
 function App() {
+  useInitialAnimation();
   return (
     <Provider store={store}>
       <Header />
