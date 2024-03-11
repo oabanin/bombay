@@ -8,12 +8,12 @@ $px: mixins.rem(4px);
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: mixins.rem(23px) mixins.rem(12px) mixins.rem(20px);
+  padding: mixins.rem(23px) mixins.rem(12px) mixins.rem(13px);
   border-width: mixins.rem(3px);
   border-style: solid;
   border-radius: mixins.rem(6px);
   font-family: var(--font-family-secondary);
-  gap: mixins.rem(11px);
+  gap: mixins.rem(5px);
   &.active {
     &:before {
       position: absolute;

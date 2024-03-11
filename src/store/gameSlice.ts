@@ -8,6 +8,8 @@ import {
   ENUM_RESULTS,
   INITIAL_BALANCE,
 } from '../constants/specifications.ts';
+import { calculateBalance } from '../utils/calculateBalance.ts';
+import { calculatePositionCount } from '../utils/calculatePositions.ts';
 import { calculateReturn } from '../utils/calculateReturn.ts';
 import { calculateTotalBet } from '../utils/calculateTotalBet.ts';
 import { comparePositions } from '../utils/comparePositions.ts';
@@ -34,7 +36,7 @@ export const gameSlice = createSlice({
   reducers: {
     addBet: (state, action: PayloadAction<ENUM_POSITIONS>) => {
       const calculatedBets = calculateTotalBet(state.bets);
-      const calculatedBalance = numeral(state.balance).subtract(calculatedBets).value() || 0;
+      const calculatedBalance = calculateBalance(state.balance, calculatedBets);
       if (BET_STEP > calculatedBalance) return;
       const currentBet = state.bets[action.payload];
       state.bets[action.payload] = currentBet ? numeral(currentBet).add(BET_STEP).value() || 0 : BET_STEP;
@@ -53,10 +55,14 @@ export const gameSlice = createSlice({
         Object.keys(state.bets) as ENUM_POSITIONS[],
         state.computerPosition,
       );
+      const totalBet = calculateTotalBet(state.bets);
+      const calculatedBalance = calculateBalance(state.balance, totalBet);
       if (result === ENUM_RESULTS.win) {
-        state.balance = numeral(state.balance).add(calculateReturn(state.bets, position)).value() || 0;
+        state.balance = numeral(calculatedBalance).add(calculateReturn(state.bets, position)).value() || 0;
+      } else if (result === ENUM_RESULTS.tie && calculatePositionCount(state.bets) > 1) {
+        state.balance = calculatedBalance;
       } else {
-        state.balance = numeral(state.balance).subtract(calculateTotalBet(state.bets)).value() || 0;
+        state.balance = calculatedBalance;
       }
       state.computerPosition = null;
       state.gameState = ENUM_GAME_STATE.placeBet;

@@ -1,6 +1,5 @@
 export const INITIAL_BALANCE = 5000;
 export const BET_STEP = 500;
-export const MAX_POSITIONS = 2;
 export const POSITIONS_MULTIPLIERS = {
   1: 14,
   2: 3,
@@ -40,6 +39,8 @@ export const POSITION_ITEMS = [
   //   color: 'red' as const,
   // },
 ];
+
+export const MAX_POSITIONS = POSITION_ITEMS.length - 1;
 
 export const WIN_MAP = {
   rock: [ENUM_POSITIONS.scissors],

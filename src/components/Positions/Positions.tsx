@@ -6,7 +6,8 @@ import { addBet } from '../../store/gameSlice.ts';
 import { useAppDispatch, useAppSelector } from '../../store/hooks.ts';
 import { selectBalanceCalculated, selectBets, selectGameState, selectPlayerPosition } from '../../store/selectors.ts';
 import { ButtonPosition } from '../../UI/Buttons/ButtonPosition/ButtonPosition.tsx';
-import { getCoinValue } from '../../utils/getCoinValue.tsx';
+import { calculatePositionCount } from '../../utils/calculatePositions.ts';
+import { getCoinValue } from '../../utils/getCoinValue.ts';
 import s from './Positions.module.scss';
 
 export const Positions = () => {
@@ -27,7 +28,7 @@ export const Positions = () => {
     <div className={s.container}>
       {POSITION_ITEMS.map((item, index) => {
         const isDisabled =
-          (Object.keys(bets).length >= MAX_POSITIONS && !bets[item.position]) ||
+          (calculatePositionCount(bets) >= MAX_POSITIONS && !bets[item.position]) ||
           gameState !== ENUM_GAME_STATE.placeBet ||
           balance <= 0;
         return (
