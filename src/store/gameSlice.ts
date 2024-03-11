@@ -31,7 +31,7 @@ const initialState: GameState = {
 };
 
 export const gameSlice = createSlice({
-  name: 'counter',
+  name: 'game',
   initialState,
   reducers: {
     addBet: (state, action: PayloadAction<ENUM_POSITIONS>) => {
@@ -66,9 +66,9 @@ export const gameSlice = createSlice({
       } else {
         state.balance = calculatedBalance;
       }
-      state.computerPosition = null;
-      state.gameState = ENUM_GAME_STATE.placeBet;
-      state.bets = {} as Record<ENUM_POSITIONS, number>;
+      state.computerPosition = initialState.computerPosition;
+      state.gameState = initialState.gameState;
+      state.bets = initialState.bets;
     },
   },
 });
