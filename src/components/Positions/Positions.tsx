@@ -6,8 +6,10 @@ import { addBet } from '../../store/gameSlice.ts';
 import { useAppDispatch, useAppSelector } from '../../store/hooks.ts';
 import { selectBalanceCalculated, selectBets, selectGameState, selectPlayerPosition } from '../../store/selectors.ts';
 import { ButtonPosition } from '../../UI/Buttons/ButtonPosition/ButtonPosition.tsx';
+import { Chip } from '../../UI/Chip/Chip.tsx';
 import { calculatePositionCount } from '../../utils/calculatePositions.ts';
 import { getCoinValue } from '../../utils/getCoinValue.ts';
+import { ChipTransition } from './ChipTransition/ChipTransition.tsx';
 import s from './Positions.module.scss';
 
 export const Positions = () => {
@@ -18,7 +20,7 @@ export const Positions = () => {
   const balance = useAppSelector(selectBalanceCalculated);
 
   const handleClick = useCallback(
-    (position: string) => {
+    async (position: string) => {
       dispatch(addBet(position as ENUM_POSITIONS));
     },
     [dispatch],
@@ -39,7 +41,13 @@ export const Positions = () => {
             key={`${index}${item.position}`}
             color={item.color}
             text={item.position}
-            bet={bets[item.position] ? getCoinValue(bets[item.position]) : undefined}
+            bet={
+              bets[item.position] && (
+                <ChipTransition>
+                  <Chip value={getCoinValue(bets[item.position])} />
+                </ChipTransition>
+              )
+            }
           />
         );
       })}

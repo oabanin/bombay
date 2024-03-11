@@ -1,4 +1,4 @@
-import { memo, useCallback } from 'react';
+import { memo, useCallback, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import { gsap } from 'gsap';
@@ -16,10 +16,12 @@ export const Play = () => {
   const gameState = useSelector(selectGameState);
   const totalBet = useSelector(selectTotalBet);
   const dispatch = useAppDispatch();
+  const [isDisabled, setIsDisabled] = useState(false);
 
   const handlePlay = useCallback(async () => {
-    const timeline = gsap.timeline();
-    await timeline
+    setIsDisabled(true);
+    await gsap
+      .timeline()
       .to('#bombay-play-container', {
         scale: 0.85,
         duration: 0.1,
@@ -38,6 +40,7 @@ export const Play = () => {
     dispatch(setGameState(ENUM_GAME_STATE.result));
     const { result } = comparePositions(Object.keys(game.bets) as ENUM_POSITIONS[], computerPosition);
     result === ENUM_RESULTS.win && dispatch(addWin());
+    setIsDisabled(false);
   }, [dispatch]);
 
   const isButtonDisabled =
@@ -46,7 +49,7 @@ export const Play = () => {
   return (
     <ButtonPlayContainer
       handlePlay={handlePlay}
-      isDisabled={isButtonDisabled}
+      isDisabled={isButtonDisabled || isDisabled}
       text={gameState === ENUM_GAME_STATE.result ? 'Clear' : 'Play'}
     />
   );

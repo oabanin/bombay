@@ -2,7 +2,10 @@
 
 .container {
   display: flex;
+  width: mixins.rem(162px);
   min-width: mixins.rem(162px);
+
+  height: mixins.rem(72px);
   align-items: center;
   justify-content: center;
   padding: mixins.rem(22px);
@@ -13,9 +16,6 @@
   font-size: var(--font-size-xl);
   font-weight: 700;
   text-transform: uppercase;
-  width: mixins.rem(162px);
-
-  height: mixins.rem(72px);
   transition: background-color 0.5s ease;
   &:hover:not(:disabled) {
     background-color: var(--color-white);
