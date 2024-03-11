@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-import { TypeColor } from '../Buttons/ButtonPosition/ButtonPosition.tsx';
+import { TypeColor } from '../Typography/Typography.tsx';
 import { Typography } from '../Typography/Typography.tsx';
 export const PositionTitle = ({
   text,
