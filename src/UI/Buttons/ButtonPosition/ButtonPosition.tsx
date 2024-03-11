@@ -3,10 +3,9 @@ import { memo } from 'react';
 import { clsx } from 'clsx';
 
 import { Chip } from '../../Chip/Chip.tsx';
-import { Typography } from '../../Typography/Typography.tsx';
+import { TypeColor, Typography } from '../../Typography/Typography.tsx';
 import s from './ButtonPosition.module.scss';
 
-export type TypeColor = 'red' | 'green' | 'blue' | 'brown' | 'white';
 export const ButtonPosition = memo(
   ({
     text,
@@ -21,7 +20,7 @@ export const ButtonPosition = memo(
     active?: boolean;
     disabled?: boolean;
     onClick?: (value: string) => void;
-    color?: TypeColor;
+    color?: Extract<TypeColor, 'green' | 'blue' | 'red'>;
   }) => {
     return (
       <button

@@ -59,8 +59,10 @@ export const gameSlice = createSlice({
       const calculatedBalance = calculateBalance(state.balance, totalBet);
       if (result === ENUM_RESULTS.win) {
         state.balance = numeral(calculatedBalance).add(calculateReturn(state.bets, position)).value() || 0;
-      } else if (result === ENUM_RESULTS.tie && calculatePositionCount(state.bets) > 1) {
-        state.balance = calculatedBalance;
+      } else if (result === ENUM_RESULTS.tie) {
+        if (calculatePositionCount(state.bets) > 1) {
+          state.balance = calculatedBalance;
+        }
       } else {
         state.balance = calculatedBalance;
       }

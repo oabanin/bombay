@@ -7,17 +7,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  //align-items: center;
-
-  //display: flex;
-  //flex: 1;
-  //flex-direction: column;
-  //justify-content: center;
-  //padding: mixins.rem(20px) mixins.rem(15px);
   padding-inline: mixins.rem(15px);
-  @media (min-width: variables.$breakpoint-md) and (min-height: variables.$breakpoint-height) {
-    //padding: mixins.rem(46px) mixins.rem(20px);
-  }
 }
 
 .drawSpace {

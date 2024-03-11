@@ -1,7 +1,7 @@
-import { memo, useMemo } from 'react';
+import { memo } from 'react';
 import { useSelector } from 'react-redux';
 
-import { ENUM_GAME_STATE, ENUM_RESULTS, POSITION_ITEMS } from '../../constants/specifications.ts';
+import { ENUM_GAME_STATE, ENUM_RESULTS, POSITION_RESULT_COLORS } from '../../constants/specifications.ts';
 import { selectComputerPosition, selectGameState, selectPlayerPosition } from '../../store/selectors.ts';
 import { PositionTitle } from '../../UI/PositionTitle/PositionTitle.tsx';
 import { Typography } from '../../UI/Typography/Typography.tsx';
@@ -33,10 +33,6 @@ const DrawTitle = () => {
 const DrawResult = () => {
   const { position, result } = useSelector(selectPlayerPosition);
 
-  const color = useMemo(() => {
-    return POSITION_ITEMS.find((item) => item.position === position);
-  }, [position]);
-
   let text = '';
   switch (result) {
     case ENUM_RESULTS.lose:
@@ -50,7 +46,7 @@ const DrawResult = () => {
       break;
   }
   return (
-    <Typography color={color?.color} size="4xl">
+    <Typography color={POSITION_RESULT_COLORS[result]} size="4xl">
       {position} {text}
     </Typography>
   );

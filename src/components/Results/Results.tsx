@@ -6,6 +6,7 @@ import numeral from 'numeral';
 import { ENUM_GAME_STATE, ENUM_RESULTS } from '../../constants/specifications.ts';
 import { selectBets, selectGameState, selectPlayerPosition, selectTotalBet } from '../../store/selectors.ts';
 import { Typography } from '../../UI/Typography/Typography.tsx';
+import { calculatePositionCount } from '../../utils/calculatePositions.ts';
 import { calculateReturn } from '../../utils/calculateReturn.ts';
 
 export const Results = () => {
@@ -22,14 +23,17 @@ const ResultsText = () => {
     return calculateReturn(bets, position);
   }, [bets, position]);
 
-  const isWin = result === ENUM_RESULTS.win;
+  const isTie = result === ENUM_RESULTS.tie;
+  const isWin = result === ENUM_RESULTS.win || (isTie && calculatePositionCount(bets) === 1);
+  const bet = numeral(totalBet).format('0.00');
+
   return (
     <div>
       <Typography as="span" size="xl" color="brown">
         You {isWin ? 'win' : 'lose'}
       </Typography>{' '}
       <Typography as="span" size="xl" color="white">
-        {isWin ? countWin : numeral(totalBet).format('0.00')}
+        {isWin ? (isTie ? bet : countWin) : bet}
       </Typography>
     </div>
   );

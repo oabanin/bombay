@@ -21,6 +21,12 @@ export enum ENUM_POSITIONS {
   // test = 'test',
 }
 
+export const POSITION_RESULT_COLORS = {
+  [ENUM_RESULTS.win]: 'green' as const,
+  [ENUM_RESULTS.lose]: 'red' as const,
+  [ENUM_RESULTS.tie]: 'brown' as const,
+};
+
 export const POSITION_ITEMS = [
   {
     position: ENUM_POSITIONS.rock,

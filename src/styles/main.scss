@@ -74,7 +74,6 @@ body {
   min-height: 100dvh;
   padding: 0;
   margin: 0;
-  //display: flex;
   background: linear-gradient(to bottom, var(--color-bg-start), var(--color-bg-end));
   color: var(--color-white);
   text-transform: uppercase;
@@ -82,9 +81,6 @@ body {
 
 #root {
   min-height: 100vh;
-  //display: flex;
-  //flex: 1;
-  //flex-direction: column;
 }
 
 button {

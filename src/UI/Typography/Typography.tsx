@@ -2,9 +2,9 @@ import { memo, ReactNode } from 'react';
 
 import { clsx } from 'clsx';
 
-import { TypeColor } from '../Buttons/ButtonPosition/ButtonPosition.tsx';
 import s from './Typography.module.scss';
 
+export type TypeColor = 'red' | 'green' | 'blue' | 'brown' | 'white';
 type TypeTypography = 'h3' | 'h2' | 'h1' | 'div' | 'span';
 type TypeSize = 'small' | 'medium' | 'large' | 'xl' | '2xl' | '3xl' | '4xl';
 type TypeFont = 'primary' | 'secondary';
