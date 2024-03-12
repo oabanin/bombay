@@ -20,6 +20,7 @@ export const Play = () => {
 
   const handlePlay = useCallback(async () => {
     setIsDisabled(true);
+
     await gsap
       .timeline()
       .to('#bombay-play-container', {
@@ -28,8 +29,10 @@ export const Play = () => {
       })
       .to('#bombay-play-container', { scale: 1, duration: 0.1 });
     const { game } = store.getState();
+
     if (game.gameState === ENUM_GAME_STATE.result) {
       dispatch(clear());
+      setIsDisabled(false);
       return;
     }
 
