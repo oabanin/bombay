@@ -15,7 +15,7 @@ import { ChipTransition } from './ChipTransition/ChipTransition.tsx';
 import s from './Positions.module.scss';
 
 const sound = new Howler.Howl({
-  src: ['/sounds.mp3'],
+  src: ['/assets/sounds.mp3'],
   sprite: {
     bet: [3000, 500],
     notAllowed: [7000, 600],
