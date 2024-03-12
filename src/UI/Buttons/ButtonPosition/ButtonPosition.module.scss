@@ -68,5 +68,5 @@ $px: mixins.rem(4px);
 }
 
 .text {
-  letter-spacing: 0.3px;
+  letter-spacing: mixins.rem(0.3px);
 }

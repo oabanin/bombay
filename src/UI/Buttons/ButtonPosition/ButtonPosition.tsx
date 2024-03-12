@@ -32,7 +32,6 @@ export const ButtonPosition = memo(
           color === 'blue' && s.blue,
           color === 'red' && s.red,
           active && s.active,
-          'bombay-position',
         )}
       >
         <div className={s.chipContainer}>{bet}</div>
