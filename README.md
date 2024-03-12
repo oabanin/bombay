@@ -20,7 +20,7 @@ Welcome to Bombay, a simple Rock Scissors Paper game built with React! Customize
    npm run dev
    ```
 
-   Visit [http://localhost:3000](http://localhost:3000) in your browser to play the game.
+   Visit [http://localhost:5173/bombay](http://localhost:5173/bombay) in your browser to play the game.
 
 ## Game Rules
 
