@@ -50,22 +50,22 @@ export const Play = () => {
     gameState === ENUM_GAME_STATE.game || (gameState === ENUM_GAME_STATE.placeBet && totalBet === 0);
 
   return (
-    <ButtonPlayContainer
-      handlePlay={handlePlay}
-      isDisabled={isButtonDisabled || isDisabled}
-      text={gameState === ENUM_GAME_STATE.result ? 'Clear' : 'Play'}
-    />
+    <div id="bombay-play-container">
+      <ButtonPlayContainer
+        handlePlay={handlePlay}
+        isDisabled={isButtonDisabled || isDisabled}
+        text={gameState === ENUM_GAME_STATE.result ? 'Clear' : 'Play'}
+      />
+    </div>
   );
 };
 
 const ButtonPlayContainer = memo(
   ({ text, isDisabled, handlePlay }: { text: string; isDisabled: boolean; handlePlay: () => void }) => {
     return (
-      <div id="bombay-play-container">
-        <ButtonPlay onClick={handlePlay} disabled={isDisabled}>
-          {text}
-        </ButtonPlay>
-      </div>
+      <ButtonPlay onClick={handlePlay} disabled={isDisabled}>
+        {text}
+      </ButtonPlay>
     );
   },
 );
