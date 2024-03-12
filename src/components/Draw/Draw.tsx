@@ -1,5 +1,8 @@
-import { memo } from 'react';
+import { memo, useRef } from 'react';
 import { useSelector } from 'react-redux';
+
+import { useGSAP } from '@gsap/react';
+import { gsap } from 'gsap';
 
 import { ENUM_GAME_STATE, ENUM_RESULTS, POSITION_RESULT_COLORS } from '../../constants/specifications.ts';
 import { selectComputerPosition, selectGameState, selectPlayerPosition } from '../../store/selectors.ts';
@@ -17,7 +20,19 @@ export const Draw = memo(() => {
 const DrawTitle = () => {
   const computerPosition = useSelector(selectComputerPosition);
   const { position } = useSelector(selectPlayerPosition);
+  const computerRef = useRef(null);
+  const vsRef = useRef(null);
+  const playerRef = useRef(null);
 
+  useGSAP(() => {
+    if (!computerPosition) return;
+
+    gsap
+      .timeline()
+      .fromTo(computerRef.current, { yPercent: -200, opacity: 0 }, { yPercent: 0, opacity: 1, duration: 0.5 })
+      .fromTo(vsRef.current, { opacity: 0 }, { opacity: 1, duration: 0.5 })
+      .fromTo(playerRef.current, { yPercent: 200, opacity: 0 }, { yPercent: 0, opacity: 1, duration: 0.5 });
+  }, [computerPosition, position]);
   // useEffect(() => {
   //   let array = [9, 8, 7, 6, 5, 4, 3, 2, 1],
   //     interval = 1400,
@@ -36,17 +51,24 @@ const DrawTitle = () => {
 
   return (
     <div className={s.draw}>
-      <PositionTitle className={s.computerPosition} text={computerPosition} />
-      <Typography className={s.vs} size="4xl" color="brown">
-        vs
-      </Typography>
-      <PositionTitle className={s.playerPosition} text={position} />
+      <div ref={computerRef}>
+        <PositionTitle className={s.computerPosition} text={computerPosition} />
+      </div>
+      <div ref={vsRef}>
+        <Typography className={s.vs} size="4xl" color="brown">
+          vs
+        </Typography>
+      </div>
+      <div ref={playerRef}>
+        <PositionTitle className={s.playerPosition} text={position} />
+      </div>
     </div>
   );
 };
 
 const DrawResult = () => {
   const { position, result } = useSelector(selectPlayerPosition);
+  const resultRef = useRef(null);
 
   let text = '';
   switch (result) {
@@ -60,9 +82,19 @@ const DrawResult = () => {
       text = 'tie';
       break;
   }
+  useGSAP(() => {
+    gsap.fromTo(
+      resultRef.current,
+      { scale: 0.5, opacity: 0 },
+      { scale: 1, opacity: 1, duration: 0.5, ease: 'sine.inOut' },
+    );
+  }, []);
+
   return (
-    <Typography color={POSITION_RESULT_COLORS[result]} size="4xl">
-      {position} {text}
-    </Typography>
+    <div ref={resultRef}>
+      <Typography color={POSITION_RESULT_COLORS[result]} size="4xl">
+        {position} {text}
+      </Typography>
+    </div>
   );
 };

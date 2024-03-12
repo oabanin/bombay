@@ -1,7 +1,7 @@
 import { ENUM_RESULTS } from '../../constants/specifications.ts';
 import { sound } from './sound.ts';
 
-export const resultsSound = (result: ENUM_RESULTS, positionsCount: number) => {
+export const clearSound = (result: ENUM_RESULTS, positionsCount: number) => {
   switch (result) {
     case ENUM_RESULTS.win:
       sound.play('win');

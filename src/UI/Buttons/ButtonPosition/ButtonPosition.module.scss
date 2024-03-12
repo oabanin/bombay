@@ -16,15 +16,20 @@ $px: mixins.rem(4px);
   font-family: var(--font-family-secondary);
   gap: mixins.rem(5px);
 
+  &:before {
+    transition: all 0.5s ease-in-out;
+    position: absolute;
+    top: mixins.rem(-2px);
+    left: mixins.rem(-2px);
+    width: calc(100% + $px);
+    height: calc(100% + $px);
+    border-radius: mixins.rem(6px);
+    content: '';
+    opacity: 0;
+  }
   &.active {
     &:before {
-      position: absolute;
-      top: mixins.rem(-2px);
-      left: mixins.rem(-2px);
-      width: calc(100% + $px);
-      height: calc(100% + $px);
-      border-radius: mixins.rem(6px);
-      content: '';
+      opacity: 1;
     }
   }
 

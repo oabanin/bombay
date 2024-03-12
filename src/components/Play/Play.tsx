@@ -5,7 +5,7 @@ import { ENUM_GAME_STATE, ENUM_POSITIONS, ENUM_RESULTS } from '../../constants/s
 import { chipDisappear } from '../../effects/animations/chipDisappear.tsx';
 import { pickPositionsHide, pickPositionsShow } from '../../effects/animations/pickPositions.ts';
 import { playButtonTimeline } from '../../effects/animations/playButtonTimeline.ts';
-import { resultsSound } from '../../effects/sounds/resultsSound.ts';
+import { clearSound } from '../../effects/sounds/clearSound.ts';
 import { sound } from '../../effects/sounds/sound.ts';
 import { addWin, clear, setComputerPosition, setGameState } from '../../store/gameSlice.ts';
 import { useAppDispatch } from '../../store/hooks.ts';
@@ -31,7 +31,7 @@ export const Play = () => {
     if (game.gameState === ENUM_GAME_STATE.result) {
       const { result, position } = comparePositions(Object.keys(game.bets) as ENUM_POSITIONS[], game.computerPosition);
       const positionsCount = calculatePositionCount(game.bets);
-      resultsSound(result, positionsCount);
+      clearSound(result, positionsCount);
       await chipDisappear(result, position, game.bets);
       dispatch(clear());
       setIsDisabled(false);
@@ -45,7 +45,7 @@ export const Play = () => {
     const computerPosition = getRandomPosition();
     const { result } = comparePositions(Object.keys(game.bets) as ENUM_POSITIONS[], computerPosition);
     dispatch(setComputerPosition(computerPosition));
-    await sleep(1000);
+    await sleep(2000);
     dispatch(setGameState(ENUM_GAME_STATE.result));
     result === ENUM_RESULTS.win && dispatch(addWin());
     setIsDisabled(false);
