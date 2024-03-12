@@ -15,7 +15,7 @@ import { ChipTransition } from './ChipTransition/ChipTransition.tsx';
 import s from './Positions.module.scss';
 
 const sound = new Howler.Howl({
-  src: ['/assets/sounds.mp3'],
+  src: ['/bombay/assets/sounds.mp3'],
   sprite: {
     bet: [3000, 500],
     notAllowed: [7000, 600],
@@ -47,6 +47,7 @@ export const Positions = () => {
           balance <= 0;
         return (
           <div
+            key={`${index}${item.position}`}
             onClick={() => {
               isDisabled && sound.play('notAllowed');
             }}
@@ -56,7 +57,6 @@ export const Positions = () => {
               active={gameState === ENUM_GAME_STATE.result && position === item.position}
               disabled={isDisabled}
               onClick={handleClick}
-              key={`${index}${item.position}`}
               color={item.color}
               text={item.position}
               bet={
