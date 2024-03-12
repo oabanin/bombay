@@ -25,13 +25,15 @@ function App() {
           <Results />
         </div>
         <div className={s.pickPositionsSpace} />
-        <div className={s.pickPositions}>
+        <div id="bombay-pick-positions" className={s.pickPositions}>
           <PickPositions />
         </div>
         <div className={s.positionsSpace} />
         <Positions />
         <div className={s.playSpace} />
-        <Play />
+        <div id="bombay-play-container">
+          <Play />
+        </div>
         <div className={s.bottomSpace} />
       </main>
     </Provider>

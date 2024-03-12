@@ -18,7 +18,22 @@ const DrawTitle = () => {
   const computerPosition = useSelector(selectComputerPosition);
   const { position } = useSelector(selectPlayerPosition);
 
+  // useEffect(() => {
+  //   let array = [9, 8, 7, 6, 5, 4, 3, 2, 1],
+  //     interval = 1400,
+  //     p = 0;
+  //
+  //   array.forEach((v, i) =>
+  //     setTimeout(
+  //       () => {
+  //         document.getElementById('out').innerHTML = v;
+  //       },
+  //       ((interval /= 1.5), (p += interval)),
+  //     ),
+  //   );
+  // }, []);
   if (!computerPosition) return null;
+
   return (
     <div className={s.draw}>
       <PositionTitle className={s.computerPosition} text={computerPosition} />

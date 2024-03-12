@@ -12,9 +12,5 @@ export const PickPositions = memo(() => {
 });
 
 const PickPositionsText = () => {
-  return (
-    <div id="bombay-pick-positions">
-      <Typography color="brown">Pick your positions</Typography>
-    </div>
-  );
+  return <Typography color="brown">Pick your positions</Typography>;
 };

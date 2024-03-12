@@ -3,8 +3,9 @@ import { ReactNode, useRef } from 'react';
 import { useGSAP } from '@gsap/react';
 import { gsap } from 'gsap';
 
+import { ENUM_POSITIONS } from '../../../constants/specifications.ts';
 import s from './ChipTransition.module.scss';
-export const ChipTransition = ({ children }: { children: ReactNode }) => {
+export const ChipTransition = ({ children, position }: { children: ReactNode; position: ENUM_POSITIONS }) => {
   const ref = useRef(null);
   useGSAP(async () => {
     await gsap.fromTo(
@@ -21,7 +22,7 @@ export const ChipTransition = ({ children }: { children: ReactNode }) => {
     );
   });
   return (
-    <div className={`${s.container} bombay-chip-container`} ref={ref}>
+    <div data-position={position} className={`${s.container} bombay-chip-container`} ref={ref}>
       {children}
     </div>
   );

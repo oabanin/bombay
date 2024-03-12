@@ -6,8 +6,8 @@ import numeral from 'numeral';
 import { ENUM_GAME_STATE, ENUM_RESULTS } from '../../constants/specifications.ts';
 import { selectBets, selectGameState, selectPlayerPosition, selectTotalBet } from '../../store/selectors.ts';
 import { Typography } from '../../UI/Typography/Typography.tsx';
-import { calculatePositionCount } from '../../utils/calculatePositions.ts';
 import { calculateReturn } from '../../utils/calculateReturn.ts';
+import { checkPositionResult } from '../../utils/checkPositionResult.ts';
 
 export const Results = () => {
   const gameState = useSelector(selectGameState);
@@ -24,7 +24,7 @@ const ResultsText = () => {
   }, [bets, position]);
 
   const isTie = result === ENUM_RESULTS.tie;
-  const isWin = result === ENUM_RESULTS.win || (isTie && calculatePositionCount(bets) === 1);
+  const isWin = checkPositionResult(result, bets);
   const bet = numeral(totalBet).format('0.00');
 
   return (

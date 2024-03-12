@@ -1,9 +1,8 @@
 import { useCallback } from 'react';
 import { useSelector } from 'react-redux';
 
-import * as Howler from 'howler';
-
 import { ENUM_GAME_STATE, ENUM_POSITIONS, MAX_POSITIONS, POSITION_ITEMS } from '../../constants/specifications.ts';
+import { sound } from '../../effects/sounds/sound.ts';
 import { addBet } from '../../store/gameSlice.ts';
 import { useAppDispatch, useAppSelector } from '../../store/hooks.ts';
 import { selectBalanceCalculated, selectBets, selectGameState, selectPlayerPosition } from '../../store/selectors.ts';
@@ -13,15 +12,6 @@ import { calculatePositionCount } from '../../utils/calculatePositions.ts';
 import { getCoinValue } from '../../utils/getCoinValue.ts';
 import { ChipTransition } from './ChipTransition/ChipTransition.tsx';
 import s from './Positions.module.scss';
-
-const sound = new Howler.Howl({
-  src: ['/bombay/assets/sounds.mp3'],
-  sprite: {
-    bet: [3000, 500],
-    notAllowed: [7000, 600],
-  },
-  preload: true,
-});
 
 export const Positions = () => {
   const dispatch = useAppDispatch();
@@ -38,6 +28,13 @@ export const Positions = () => {
     [dispatch],
   );
 
+  const onDisabled = useCallback(
+    (isDisabled: boolean) => () => {
+      isDisabled && sound.play('notAllowed');
+    },
+    [],
+  );
+
   return (
     <div className={s.container}>
       {POSITION_ITEMS.map((item, index) => {
@@ -46,13 +43,7 @@ export const Positions = () => {
           gameState !== ENUM_GAME_STATE.placeBet ||
           balance <= 0;
         return (
-          <div
-            key={`${index}${item.position}`}
-            onClick={() => {
-              isDisabled && sound.play('notAllowed');
-            }}
-            className="bombay-position"
-          >
+          <div key={`${index}${item.position}`} onClick={onDisabled(isDisabled)} className="bombay-position">
             <ButtonPosition
               active={gameState === ENUM_GAME_STATE.result && position === item.position}
               disabled={isDisabled}
@@ -61,7 +52,7 @@ export const Positions = () => {
               text={item.position}
               bet={
                 bets[item.position] && (
-                  <ChipTransition>
+                  <ChipTransition position={item.position}>
                     <Chip value={getCoinValue(bets[item.position])} />
                   </ChipTransition>
                 )
