@@ -8,13 +8,13 @@ import {
   ENUM_RESULTS,
   INITIAL_BALANCE,
 } from '../constants/specifications.ts';
-import { calculateBalance } from '../utils/calculateBalance.ts';
-import { calculatePositionCount } from '../utils/calculatePositions.ts';
-import { calculateReturn } from '../utils/calculateReturn.ts';
-import { calculateTotalBet } from '../utils/calculateTotalBet.ts';
-import { comparePositions } from '../utils/comparePositions.ts';
+import { calculateBalance } from '../utils/game/calculateBalance.ts';
+import { calculatePositionCount } from '../utils/game/calculatePositions.ts';
+import { calculateReturn } from '../utils/game/calculateReturn.ts';
+import { calculateTotalBet } from '../utils/game/calculateTotalBet.ts';
+import { comparePositions } from '../utils/game/comparePositions.ts';
 
-export interface GameState {
+interface GameState {
   gameState: ENUM_GAME_STATE;
   balance: number;
   win: number;

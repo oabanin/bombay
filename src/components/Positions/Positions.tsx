@@ -8,9 +8,9 @@ import { useAppDispatch, useAppSelector } from '../../store/hooks.ts';
 import { selectBalanceCalculated, selectBets, selectGameState, selectPlayerPosition } from '../../store/selectors.ts';
 import { ButtonPosition } from '../../UI/Buttons/ButtonPosition/ButtonPosition.tsx';
 import { Chip } from '../../UI/Chip/Chip.tsx';
-import { calculatePositionCount } from '../../utils/calculatePositions.ts';
-import { getCoinValue } from '../../utils/getCoinValue.ts';
-import { ChipTransition } from './ChipTransition/ChipTransition.tsx';
+import { calculatePositionCount } from '../../utils/game/calculatePositions.ts';
+import { getCoinValue } from '../../utils/game/getCoinValue.ts';
+import { ChipTransition } from '../Transitions/ChipTransition/ChipTransition.tsx';
 import s from './Positions.module.scss';
 
 export const Positions = () => {

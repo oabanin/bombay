@@ -1,6 +1,6 @@
 import numeral from 'numeral';
 
-import { ENUM_POSITIONS, POSITIONS_MULTIPLIERS } from '../constants/specifications.ts';
+import { ENUM_POSITIONS, POSITIONS_MULTIPLIERS } from '../../constants/specifications.ts';
 import { calculatePositionCount } from './calculatePositions.ts';
 
 export const calculateReturn = (bets: Record<string, number>, position: ENUM_POSITIONS) => {

@@ -17,7 +17,6 @@ $px: mixins.rem(4px);
   gap: mixins.rem(5px);
 
   &:before {
-    transition: all 0.5s ease-in-out;
     position: absolute;
     top: mixins.rem(-2px);
     left: mixins.rem(-2px);
@@ -26,6 +25,7 @@ $px: mixins.rem(4px);
     border-radius: mixins.rem(6px);
     content: '';
     opacity: 0;
+    transition: all 0.5s ease-in-out;
   }
   &.active {
     &:before {

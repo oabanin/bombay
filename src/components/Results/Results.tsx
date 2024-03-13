@@ -1,17 +1,16 @@
-import { useEffect, useMemo, useRef } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 
-import { useGSAP } from '@gsap/react';
-import { gsap } from 'gsap';
 import numeral from 'numeral';
 
 import { ENUM_GAME_STATE, ENUM_RESULTS } from '../../constants/specifications.ts';
 import { resultSound } from '../../effects/sounds/resultSound.ts';
+import { useResultsAnimation } from '../../hooks/animations/useResultsAnimation.ts';
 import { selectBets, selectGameState, selectPlayerPosition, selectTotalBet } from '../../store/selectors.ts';
 import { Typography } from '../../UI/Typography/Typography.tsx';
-import { calculatePositionCount } from '../../utils/calculatePositions.ts';
-import { calculateReturn } from '../../utils/calculateReturn.ts';
-import { checkPositionResult } from '../../utils/checkPositionResult.ts';
+import { calculatePositionCount } from '../../utils/game/calculatePositions.ts';
+import { calculateReturn } from '../../utils/game/calculateReturn.ts';
+import { checkPositionResult } from '../../utils/game/checkPositionResult.ts';
 
 export const Results = () => {
   const gameState = useSelector(selectGameState);
@@ -22,9 +21,14 @@ export const Results = () => {
 const ResultsText = () => {
   const bets = useSelector(selectBets);
   const totalBet = useSelector(selectTotalBet);
-  const resultRef = useRef(null);
-
+  const ref = useResultsAnimation();
   const { result, position } = useSelector(selectPlayerPosition);
+
+  useEffect(() => {
+    const positionsCount = calculatePositionCount(bets);
+    resultSound(result, positionsCount);
+  }, []);
+
   const countWin = useMemo(() => {
     return calculateReturn(bets, position);
   }, [bets, position]);
@@ -33,21 +37,8 @@ const ResultsText = () => {
   const isWin = checkPositionResult(result, bets);
   const bet = numeral(totalBet).format('0.00');
 
-  useEffect(() => {
-    const positionsCount = calculatePositionCount(bets);
-    resultSound(result, positionsCount);
-  }, []);
-
-  useGSAP(() => {
-    gsap.fromTo(
-      resultRef.current,
-      { scale: 0.5, opacity: 0 },
-      { scale: 1, opacity: 1, duration: 0.5, ease: 'sine.inOut' },
-    );
-  });
-
   return (
-    <div ref={resultRef}>
+    <div ref={ref}>
       <Typography as="span" size="xl" color="brown">
         You {isWin ? 'win' : 'lose'}
       </Typography>{' '}

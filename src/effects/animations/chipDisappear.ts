@@ -1,7 +1,7 @@
 import { gsap } from 'gsap';
 
 import { ENUM_POSITIONS, ENUM_RESULTS } from '../../constants/specifications.ts';
-import { checkPositionResult } from '../../utils/checkPositionResult.ts';
+import { checkPositionResult } from '../../utils/game/checkPositionResult.ts';
 
 const options = { duration: 0.3, opacity: 0 };
 export const chipDisappear = async (
