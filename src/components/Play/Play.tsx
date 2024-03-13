@@ -1,4 +1,4 @@
-import { memo, useCallback, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import { ENUM_GAME_STATE, ENUM_POSITIONS, ENUM_RESULTS } from '@/constants/specifications.ts';
@@ -62,28 +62,8 @@ export const Play = () => {
     gameState === ENUM_GAME_STATE.game || (gameState === ENUM_GAME_STATE.placeBet && betIsZero);
 
   return (
-    <ButtonPlayContainer
-      handlePlay={handlePlay}
-      isDisabled={isButtonDisabled || isDisabled}
-      text={gameState === ENUM_GAME_STATE.result ? 'Clear' : 'Play'}
-    />
+    <ButtonPlay onClick={handlePlay} disabled={isButtonDisabled || isDisabled}>
+      {gameState === ENUM_GAME_STATE.result ? 'Clear' : 'Play'}
+    </ButtonPlay>
   );
 };
-
-const ButtonPlayContainer = memo(
-  ({
-    text,
-    isDisabled,
-    handlePlay,
-  }: {
-    text: string;
-    isDisabled: boolean;
-    handlePlay: () => void;
-  }) => {
-    return (
-      <ButtonPlay onClick={handlePlay} disabled={isDisabled}>
-        {text}
-      </ButtonPlay>
-    );
-  },
-);

@@ -20,7 +20,6 @@ export const ButtonPosition = memo(
     active?: boolean;
     disabled?: boolean;
     onClick?: (value: string) => void;
-
     color?: Extract<TypeColor, 'green' | 'blue' | 'red'>;
   }) => {
     return (
