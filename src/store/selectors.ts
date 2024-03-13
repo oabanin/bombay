@@ -30,9 +30,15 @@ export const selectTotalBet = createSelector([selectBets], (bets) => {
 export const selectIsBetZero = createSelector([selectTotalBet], (totalBet) => {
   return totalBet === 0;
 });
+
 export const selectBalanceCalculated = createSelector(
   [selectBalance, selectTotalBet],
   (balance, bet) => {
     return numeral(balance).subtract(bet).value() || 0;
   },
+);
+
+export const selectIsBalanceZero = createSelector(
+  [selectBalanceCalculated],
+  (balance) => balance <= 0,
 );

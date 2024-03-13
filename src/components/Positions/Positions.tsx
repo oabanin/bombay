@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import { useSelector } from 'react-redux';
+import { shallowEqual, useSelector } from 'react-redux';
 
 import { ChipTransition } from '@/components/Transitions/ChipTransition/ChipTransition.tsx';
 import { ENUM_ELEMENT_SELECTORS } from '@/constants/elementSelectors.ts';
@@ -14,9 +14,9 @@ import { sound } from '@/effects/sounds/sound.ts';
 import { addBet } from '@/store/gameSlice.ts';
 import { useAppDispatch, useAppSelector } from '@/store/hooks.ts';
 import {
-  selectBalanceCalculated,
   selectBets,
   selectGameState,
+  selectIsBalanceZero,
   selectPlayerPosition,
 } from '@/store/selectors.ts';
 import { ButtonPosition } from '@/UI/Buttons/ButtonPosition/ButtonPosition.tsx';
@@ -31,8 +31,8 @@ export const Positions = () => {
   const dispatch = useAppDispatch();
   const gameState = useSelector(selectGameState);
   const bets = useSelector(selectBets);
-  const { position } = useSelector(selectPlayerPosition);
-  const balance = useAppSelector(selectBalanceCalculated);
+  const { position } = useSelector(selectPlayerPosition, shallowEqual);
+  const isBalanceZero = useAppSelector(selectIsBalanceZero);
 
   const handleClick = useCallback(
     debounce(async (position: string) => {
@@ -57,7 +57,7 @@ export const Positions = () => {
         const isDisabled =
           (calculatePositionCount(bets) >= MAX_POSITIONS && !bets[item.position]) ||
           gameState !== ENUM_GAME_STATE.placeBet ||
-          balance <= 0;
+          isBalanceZero;
         return (
           <div
             key={`${index}${item.position}`}
