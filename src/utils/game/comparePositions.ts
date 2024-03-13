@@ -1,4 +1,4 @@
-import { ENUM_POSITIONS, ENUM_RESULTS, WIN_MAP } from '../../constants/specifications.ts';
+import { ENUM_POSITIONS, ENUM_RESULTS, WIN_MAP } from 'constants/specifications.ts';
 
 export const comparePositions = (playerPositions: Array<ENUM_POSITIONS>, computerPosition: ENUM_POSITIONS | null) => {
   let result = ENUM_RESULTS.lose;

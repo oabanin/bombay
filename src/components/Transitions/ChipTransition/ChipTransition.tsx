@@ -1,9 +1,9 @@
 import { ReactNode, useRef } from 'react';
 
 import { useGSAP } from '@gsap/react';
+import { ENUM_POSITIONS } from 'constants/specifications.ts';
 import { gsap } from 'gsap';
 
-import { ENUM_POSITIONS } from '../../../constants/specifications.ts';
 import s from './ChipTransition.module.scss';
 export const ChipTransition = ({ children, position }: { children: ReactNode; position: ENUM_POSITIONS }) => {
   const ref = useRef<HTMLDivElement>(null);

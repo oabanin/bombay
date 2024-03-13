@@ -1,10 +1,10 @@
 import { Selector } from '@reduxjs/toolkit';
+import { useAppSelector } from 'store/hooks.ts';
+import { selectBalanceCalculated, selectTotalBet, selectWin } from 'store/selectors.ts';
+import { RootState } from 'store/store.ts';
+import { HeaderItem } from 'UI/HeaderItem/HeaderItem.tsx';
+import { Typography } from 'UI/Typography/Typography.tsx';
 
-import { useAppSelector } from '../../store/hooks.ts';
-import { selectBalanceCalculated, selectTotalBet, selectWin } from '../../store/selectors.ts';
-import { RootState } from '../../store/store.ts';
-import { HeaderItem } from '../../UI/HeaderItem/HeaderItem.tsx';
-import { Typography } from '../../UI/Typography/Typography.tsx';
 import s from './Header.module.scss';
 
 export const Header = () => {

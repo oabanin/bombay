@@ -1,4 +1,5 @@
-import { ENUM_RESULTS } from '../../constants/specifications.ts';
+import { ENUM_RESULTS } from 'constants/specifications.ts';
+
 import { sound } from './sound.ts';
 
 export const clearSound = (result: ENUM_RESULTS, positionsCount: number) => {

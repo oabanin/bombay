@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "npm run lint:styles && vite",
     "build": "tsc && vite build",
-    "lint": "eslint bombay --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint": "eslint --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
@@ -26,6 +26,7 @@
   },
   "devDependencies": {
     "@types/howler": "^2.2.11",
+    "@types/node": "^20.11.26",
     "@types/numeral": "^2.0.5",
     "@types/react": "^18.2.56",
     "@types/react-dom": "^18.2.19",

@@ -15,10 +15,19 @@
     "noUnusedLocals": true,
     "strictNullChecks": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "baseUrl": "./src",
+    "paths": {
+      "components/*": ["components/*"],
+      "constants/*": ["constants/*"],
+      "effects/*": ["effects/*"],
+      "hooks/*": ["hooks/*"],
+      "store/*": ["store/*"],
+      "styles/*": ["styles/*"],
+      "UI/*": ["UI/*"],
+      "utils/*": ["utils/*"]
+    }
   },
-  "include": [
-    "src"
-  ],
-  "references": [{ "path": "./tsconfig.node.json"}]
+  "include": ["src"],
+  "references": [{ "path": "./tsconfig.node.json" }]
 }
