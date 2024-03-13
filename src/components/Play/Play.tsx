@@ -1,4 +1,4 @@
-import { memo, useState } from 'react';
+import { memo, useCallback, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import { ENUM_GAME_STATE, ENUM_POSITIONS, ENUM_RESULTS } from '@/constants/specifications.ts';
@@ -9,7 +9,7 @@ import { clearSound } from '@/effects/sounds/clearSound.ts';
 import { sound } from '@/effects/sounds/sound.ts';
 import { addWin, clear, setComputerPosition, setGameState } from '@/store/gameSlice.ts';
 import { useAppDispatch } from '@/store/hooks.ts';
-import { selectGameState, selectTotalBet } from '@/store/selectors.ts';
+import { selectGameState, selectIsBetZero } from '@/store/selectors.ts';
 import { store } from '@/store/store.ts';
 import { ButtonPlay } from '@/UI/Buttons/ButtonPlay/ButtonPlay.tsx';
 import { calculatePositionCount } from '@/utils/game/calculatePositions.ts';
@@ -19,11 +19,12 @@ import { sleep } from '@/utils/sleep.ts';
 
 export const Play = () => {
   const gameState = useSelector(selectGameState);
-  const totalBet = useSelector(selectTotalBet);
+  const betIsZero = useSelector(selectIsBetZero);
+
   const dispatch = useAppDispatch();
   const [isDisabled, setIsDisabled] = useState(false);
 
-  const handlePlay = async () => {
+  const handlePlay = useCallback(async () => {
     setIsDisabled(true);
     await playButtonTimeline();
 
@@ -55,11 +56,10 @@ export const Play = () => {
     dispatch(setGameState(ENUM_GAME_STATE.result));
     result === ENUM_RESULTS.win && dispatch(addWin());
     setIsDisabled(false);
-  };
+  }, [dispatch]);
 
   const isButtonDisabled =
-    gameState === ENUM_GAME_STATE.game ||
-    (gameState === ENUM_GAME_STATE.placeBet && totalBet === 0);
+    gameState === ENUM_GAME_STATE.game || (gameState === ENUM_GAME_STATE.placeBet && betIsZero);
 
   return (
     <ButtonPlayContainer
