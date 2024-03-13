@@ -1,14 +1,33 @@
-# React Rock Scissors Paper Game
+# Rock Scissors Paper Game - Bombay
 
-Welcome to Bombay, a simple Rock Scissors Paper game built with React! Customize your game by modifying the rules in `src/constants/specifications.ts`.
+Welcome to the Bombay game repository! Bombay is a ReactJS-based Rock Scissors Paper game where you can enjoy the classic gameplay with a twist. The game rules can be easily customized through the `specifications.ts` file, allowing you to add new features such as the commented-out "superhand."
+
+## Game Features
+
+- **Initial Balance:** Players start with an initial balance of 5000.
+- **Bet Step:** The betting step is set at 500.
+- **Position Multipliers:** Different multipliers for each position (1 position - 14, 2 positions - 3).
+- **Results:** Three possible results - win, lose, tie.
+- **Game States:** Three game states - placeBet, game, result.
+- **Positions:** Classic positions - rock, paper, scissors.
+- **Position Result Colors:** Colors for result display - win (green), lose (red), tie (brown).
+- **Position Items:** Each position has a designated color (rock - blue, paper - green, scissors - red).
+- **Maximum Positions:** The game supports up to two positions by default.
+- **Win Map:** Defines winning combinations for each position.
+- **Computer Position Choices:** The computer can choose from available positions.
+
+## Game Deployment
+
+The game is already deployed and accessible at [Bombay Game](https://oabanin.github.io/bombay).
 
 ## Getting Started
+
+To run the game locally, follow these steps:
 
 1. Clone the repository:
 
    ```bash
    git clone https://github.com/oabanin/bombay.git
-   cd bombay
    ```
 
 2. Install dependencies:
@@ -23,82 +42,37 @@ Welcome to Bombay, a simple Rock Scissors Paper game built with React! Customize
    npm run dev
    ```
 
-   Visit [http://localhost:5173/bombay](http://localhost:5173/bombay) in your browser to play the game.
+4. Open your browser and navigate to [http://localhost:3000](http://localhost:3000) to play the game.
 
-## Game Rules
+## Customizing Game Rules
 
-The game rules can be customized in the `src/constants/specifications.ts` file. For example, you can add a "superhand" by uncommenting the relevant code in the file.
+Adjust the game rules by modifying the `src/constants/specifications.ts` file. You can uncomment the "superhand" or make other changes to enhance your gaming experience.
 
-```typescript
-// src/constants/specifications.ts
+## Available Scripts
 
-// ...
-export enum ENUM_POSITIONS {
-  rock = 'rock',
-  paper = 'paper',
-  scissors = 'scissors',
-  // superhand = 'superhand',
-}
-// ...
-```
-
-Feel free to experiment with different rules and elements to make the game more exciting!
-
-## Configuration
-
-Customize the game behavior by adjusting the constants in `src/constants/specifications.ts`.
-
-- `INITIAL_BALANCE`: Initial balance for the player.
-- `BET_STEP`: Bet increment/decrement step.
-- `POSITIONS_MULTIPLIERS`: Multipliers for different positions.
-- `ENUM_RESULTS`: Enumeration of game results.
-- `ENUM_GAME_STATE`: Enumeration of game states.
-- `ENUM_POSITIONS`: Enumeration of game positions.
-- `POSITION_RESULT_COLORS`: Colors associated with different game results.
-- `POSITION_ITEMS`: Array of available game positions.
-- `MAX_POSITIONS`: Maximum number of positions.
-- `WIN_MAP`: Map defining winning positions for each position.
-- `COMPUTER_POSITION_CHOICES`: Array of computer position choices.
-
-## Deployment
-
-To deploy the game, build the project and deploy it to GitHub Pages:
-
-```bash
-npm run build
-npm run deploy
-```
-
-The game will be accessible at [https://oabanin.github.io/bombay](https://oabanin.github.io/bombay).
-
-## Scripts
-
-- `npm run dev`: Start the development server.
-- `npm run build`: Build the project.
-- `npm run lint`: Run ESLint to check for code style issues.
-- `npm run preview`: Preview the production build.
-- `npm run predeploy`: Build the project before deployment.
-- `npm run deploy`: Deploy the project to GitHub Pages.
-- `npm run lint:styles`: Run Stylelint to check for stylesheets issues.
+- **dev:** Run the development server with linting for styles.
+- **build:** Build the game for production.
+- **preview:** Preview the production build locally.
+- **predeploy:** Execute necessary tasks before deployment.
+- **deploy:** Deploy the game using GitHub Pages.
+- **lint:** Lint the TypeScript and TypeScript React files.
+- **format:** Format code using Prettier.
+- **lint:styles:** Lint styles using Stylelint.
+- **prepare:** Install Husky Git hooks.
+- **pre-commit:** Run linting, style linting, and code formatting before committing changes.
 
 ## Dependencies
 
-- `@reduxjs/toolkit`: State management library for React.
-- `clsx`: Utility for conditionally joining class names together.
-- `gsap`: Animation library for JavaScript.
-- `howler`: Audio library for the modern web.
-- `numeral`: Number formatting library.
-- `react`: JavaScript library for building user interfaces.
-- `react-dom`: React package for working with the DOM.
-- `react-redux`: Official React bindings for Redux.
+- **React:** 18.2.0
+- **Redux Toolkit:** 2.2.1
+- **GSAP:** 3.12.5
+- **Howler:** 2.2.4
+- **Numeral:** 2.0.6
 
-## Development Dependencies
+For a complete list of dependencies, check the `package.json` file.
 
-- `@types/howler`, `@types/numeral`, `@types/react`, `@types/react-dom`: TypeScript type definitions.
-- `@typescript-eslint/eslint-plugin`, `@typescript-eslint/parser`, `eslint`, `eslint-config-prettier`, `eslint-plugin-react-hooks`, `eslint-plugin-react-refresh`, `eslint-plugin-simple-import-sort`: ESLint configurations and plugins.
-- `gh-pages`: GitHub Pages deployment.
-- `prettier`: Opinionated code formatter.
-- `sass`: CSS preprocessor.
-- `stylelint`, `stylelint-config-idiomatic-order`, `stylelint-config-standard-scss`: Linting and style configurations.
-- `typescript`: TypeScript language.
-- `vite`: Frontend build tool.
+## Contributing
+
+Feel free to contribute to the development of Bombay by creating issues, submitting pull requests, or providing feedback.
+
+Enjoy playing Bombay! 🎮
