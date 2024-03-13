@@ -13,9 +13,14 @@ export const chipDisappear = async (
     ...options,
     yPercent: `${isWin ? '' : '-'}200`,
   });
-  const otherBets = gsap.to(`.bombay-chip-container:not([data-position="${position}"])`, {
-    ...options,
-    yPercent: `-200`,
-  });
-  return Promise.all([resultBet, otherBets]);
+  const otherBetsNodes = document.querySelectorAll(`.bombay-chip-container:not([data-position="${position}"])`);
+  if (otherBetsNodes.length > 0) {
+    const otherBets = gsap.to(otherBetsNodes, {
+      ...options,
+      yPercent: `-200`,
+    });
+    return Promise.all([resultBet, otherBets]);
+  }
+
+  return resultBet;
 };
