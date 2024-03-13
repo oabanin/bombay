@@ -2,7 +2,8 @@ import { memo, ReactNode } from 'react';
 
 import { clsx } from 'clsx';
 
-import { Typography } from '../Typography/Typography.tsx';
+import { Typography } from '@/UI/Typography/Typography.tsx';
+
 import s from './HeaderItem.module.scss';
 export const HeaderItem = memo(
   ({ title, counter, className }: { title: ReactNode; counter: ReactNode; className?: string }) => {

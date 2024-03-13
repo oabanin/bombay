@@ -1,5 +1,6 @@
-import { ENUM_POSITIONS, POSITIONS_MULTIPLIERS } from 'constants/specifications.ts';
 import numeral from 'numeral';
+
+import { ENUM_POSITIONS, POSITIONS_MULTIPLIERS } from '@/constants/specifications.ts';
 
 import { calculatePositionCount } from './calculatePositions.ts';
 

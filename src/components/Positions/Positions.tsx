@@ -1,17 +1,27 @@
 import { useCallback } from 'react';
 import { useSelector } from 'react-redux';
 
-import { ENUM_GAME_STATE, ENUM_POSITIONS, MAX_POSITIONS, POSITION_ITEMS } from 'constants/specifications.ts';
-import { sound } from 'effects/sounds/sound.ts';
-import { addBet } from 'store/gameSlice.ts';
-import { useAppDispatch, useAppSelector } from 'store/hooks.ts';
-import { selectBalanceCalculated, selectBets, selectGameState, selectPlayerPosition } from 'store/selectors.ts';
-import { ButtonPosition } from 'UI/Buttons/ButtonPosition/ButtonPosition.tsx';
-import { Chip } from 'UI/Chip/Chip.tsx';
-import { calculatePositionCount } from 'utils/game/calculatePositions.ts';
-import { getCoinValue } from 'utils/game/getCoinValue.ts';
+import { ChipTransition } from '@/components/Transitions/ChipTransition/ChipTransition.tsx';
+import {
+  ENUM_GAME_STATE,
+  ENUM_POSITIONS,
+  MAX_POSITIONS,
+  POSITION_ITEMS,
+} from '@/constants/specifications.ts';
+import { sound } from '@/effects/sounds/sound.ts';
+import { addBet } from '@/store/gameSlice.ts';
+import { useAppDispatch, useAppSelector } from '@/store/hooks.ts';
+import {
+  selectBalanceCalculated,
+  selectBets,
+  selectGameState,
+  selectPlayerPosition,
+} from '@/store/selectors.ts';
+import { ButtonPosition } from '@/UI/Buttons/ButtonPosition/ButtonPosition.tsx';
+import { Chip } from '@/UI/Chip/Chip.tsx';
+import { calculatePositionCount } from '@/utils/game/calculatePositions.ts';
+import { getCoinValue } from '@/utils/game/getCoinValue.ts';
 
-import { ChipTransition } from '../Transitions/ChipTransition/ChipTransition.tsx';
 import s from './Positions.module.scss';
 
 export const Positions = () => {
@@ -44,7 +54,11 @@ export const Positions = () => {
           gameState !== ENUM_GAME_STATE.placeBet ||
           balance <= 0;
         return (
-          <div key={`${index}${item.position}`} onClick={onDisabled(isDisabled)} className="bombay-position">
+          <div
+            key={`${index}${item.position}`}
+            onClick={onDisabled(isDisabled)}
+            className="bombay-position"
+          >
             <ButtonPosition
               active={gameState === ENUM_GAME_STATE.result && position === item.position}
               disabled={isDisabled}

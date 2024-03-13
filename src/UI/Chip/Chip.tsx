@@ -1,4 +1,5 @@
-import { Typography } from '../Typography/Typography.tsx';
+import { Typography } from '@/UI/Typography/Typography.tsx';
+
 import s from './Chip.module.scss';
 
 export const Chip = ({ value }: { value: string }) => {

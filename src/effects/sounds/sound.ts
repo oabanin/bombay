@@ -1,7 +1,7 @@
 import * as Howler from 'howler';
 
 export const sound = new Howler.Howl({
-  src: ['/bombay/assets/sounds.mp3'],
+  src: ['/bombay/assets/sounds/sounds.mp3'],
   sprite: {
     drawWin: [1000, 1500],
     drawTie: [10000, 500],

@@ -2,7 +2,8 @@ import { memo, ReactNode } from 'react';
 
 import { clsx } from 'clsx';
 
-import { TypeColor, Typography } from '../../Typography/Typography.tsx';
+import { TypeColor, Typography } from '@/UI/Typography/Typography.tsx';
+
 import s from './ButtonPosition.module.scss';
 
 export const ButtonPosition = memo(

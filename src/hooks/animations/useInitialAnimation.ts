@@ -5,7 +5,11 @@ export const useInitialAnimation = () => {
   useGSAP(() => {
     gsap
       .timeline()
-      .fromTo('#bombay-header', { yPercent: -100, opacity: 0 }, { yPercent: 0, opacity: 1, duration: 0.5 })
+      .fromTo(
+        '#bombay-header',
+        { yPercent: -100, opacity: 0 },
+        { yPercent: 0, opacity: 1, duration: 0.5 },
+      )
       .fromTo('#bombay-pick-positions', { opacity: 0 }, { opacity: 1, duration: 0.5 })
       .fromTo(
         '.bombay-position',

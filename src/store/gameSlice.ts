@@ -7,12 +7,12 @@ import {
   ENUM_POSITIONS,
   ENUM_RESULTS,
   INITIAL_BALANCE,
-} from '../constants/specifications.ts';
-import { calculateBalance } from '../utils/game/calculateBalance.ts';
-import { calculatePositionCount } from '../utils/game/calculatePositions.ts';
-import { calculateReturn } from '../utils/game/calculateReturn.ts';
-import { calculateTotalBet } from '../utils/game/calculateTotalBet.ts';
-import { comparePositions } from '../utils/game/comparePositions.ts';
+} from '@/constants/specifications.ts';
+import { calculateBalance } from '@/utils/game/calculateBalance.ts';
+import { calculatePositionCount } from '@/utils/game/calculatePositions.ts';
+import { calculateReturn } from '@/utils/game/calculateReturn.ts';
+import { calculateTotalBet } from '@/utils/game/calculateTotalBet.ts';
+import { comparePositions } from '@/utils/game/comparePositions.ts';
 
 interface GameState {
   gameState: ENUM_GAME_STATE;
@@ -39,7 +39,9 @@ export const gameSlice = createSlice({
       const calculatedBalance = calculateBalance(state.balance, calculatedBets);
       if (BET_STEP > calculatedBalance) return;
       const currentBet = state.bets[action.payload];
-      state.bets[action.payload] = currentBet ? numeral(currentBet).add(BET_STEP).value() || 0 : BET_STEP;
+      state.bets[action.payload] = currentBet
+        ? numeral(currentBet).add(BET_STEP).value() || 0
+        : BET_STEP;
     },
     setGameState: (state, action: PayloadAction<ENUM_GAME_STATE>) => {
       state.gameState = action.payload;
@@ -58,7 +60,8 @@ export const gameSlice = createSlice({
       const totalBet = calculateTotalBet(state.bets);
       const calculatedBalance = calculateBalance(state.balance, totalBet);
       if (result === ENUM_RESULTS.win) {
-        state.balance = numeral(calculatedBalance).add(calculateReturn(state.bets, position)).value() || 0;
+        state.balance =
+          numeral(calculatedBalance).add(calculateReturn(state.bets, position)).value() || 0;
       } else if (result === ENUM_RESULTS.tie) {
         if (calculatePositionCount(state.bets) > 1) {
           state.balance = calculatedBalance;

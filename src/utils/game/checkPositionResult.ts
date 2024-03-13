@@ -1,4 +1,4 @@
-import { ENUM_POSITIONS, ENUM_RESULTS } from 'constants/specifications.ts';
+import { ENUM_POSITIONS, ENUM_RESULTS } from '@/constants/specifications.ts';
 
 import { calculatePositionCount } from './calculatePositions.ts';
 

@@ -1,10 +1,10 @@
 import { memo } from 'react';
 import { useSelector } from 'react-redux';
 
-import { ENUM_GAME_STATE } from 'constants/specifications.ts';
-import { useAppSelector } from 'store/hooks.ts';
-import { selectBalance, selectGameState } from 'store/selectors.ts';
-import { Typography } from 'UI/Typography/Typography.tsx';
+import { ENUM_GAME_STATE } from '@/constants/specifications.ts';
+import { useAppSelector } from '@/store/hooks.ts';
+import { selectBalance, selectGameState } from '@/store/selectors.ts';
+import { Typography } from '@/UI/Typography/Typography.tsx';
 
 export const PickPositions = memo(() => {
   const gameState = useSelector(selectGameState);

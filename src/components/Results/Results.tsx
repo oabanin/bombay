@@ -1,15 +1,21 @@
 import { useEffect, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 
-import { ENUM_GAME_STATE, ENUM_RESULTS } from 'constants/specifications.ts';
-import { resultSound } from 'effects/sounds/resultSound.ts';
-import { useResultsAnimation } from 'hooks/animations/useResultsAnimation.ts';
 import numeral from 'numeral';
-import { selectBets, selectGameState, selectPlayerPosition, selectTotalBet } from 'store/selectors.ts';
-import { Typography } from 'UI/Typography/Typography.tsx';
-import { calculatePositionCount } from 'utils/game/calculatePositions.ts';
-import { calculateReturn } from 'utils/game/calculateReturn.ts';
-import { checkPositionResult } from 'utils/game/checkPositionResult.ts';
+
+import { ENUM_GAME_STATE, ENUM_RESULTS } from '@/constants/specifications.ts';
+import { resultSound } from '@/effects/sounds/resultSound.ts';
+import { useResultsAnimation } from '@/hooks/animations/useResultsAnimation.ts';
+import {
+  selectBets,
+  selectGameState,
+  selectPlayerPosition,
+  selectTotalBet,
+} from '@/store/selectors.ts';
+import { Typography } from '@/UI/Typography/Typography.tsx';
+import { calculatePositionCount } from '@/utils/game/calculatePositions.ts';
+import { calculateReturn } from '@/utils/game/calculateReturn.ts';
+import { checkPositionResult } from '@/utils/game/checkPositionResult.ts';
 
 export const Results = () => {
   const gameState = useSelector(selectGameState);

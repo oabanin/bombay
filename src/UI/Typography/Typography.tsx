@@ -8,6 +8,7 @@ export type TypeColor = 'red' | 'green' | 'blue' | 'brown' | 'white';
 type TypeTypography = 'h3' | 'h2' | 'h1' | 'div' | 'span';
 type TypeSize = 'small' | 'medium' | 'large' | 'xl' | '2xl' | '3xl' | '4xl';
 type TypeFont = 'primary' | 'secondary';
+
 export const Typography = memo(
   ({
     as = 'div',

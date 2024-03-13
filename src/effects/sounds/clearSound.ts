@@ -1,4 +1,4 @@
-import { ENUM_RESULTS } from 'constants/specifications.ts';
+import { ENUM_RESULTS } from '@/constants/specifications.ts';
 
 import { sound } from './sound.ts';
 

@@ -1,6 +1,7 @@
-import { ENUM_POSITIONS, ENUM_RESULTS } from 'constants/specifications.ts';
 import { gsap } from 'gsap';
-import { checkPositionResult } from 'utils/game/checkPositionResult.ts';
+
+import { ENUM_POSITIONS, ENUM_RESULTS } from '@/constants/specifications.ts';
+import { checkPositionResult } from '@/utils/game/checkPositionResult.ts';
 
 const options = { duration: 0.3, opacity: 0 };
 export const chipDisappear = async (
@@ -13,7 +14,9 @@ export const chipDisappear = async (
     ...options,
     yPercent: `${isWin ? '' : '-'}200`,
   });
-  const otherBetsNodes = document.querySelectorAll(`.bombay-chip-container:not([data-position="${position}"])`);
+  const otherBetsNodes = document.querySelectorAll(
+    `.bombay-chip-container:not([data-position="${position}"])`,
+  );
   if (otherBetsNodes.length > 0) {
     const otherBets = gsap.to(otherBetsNodes, {
       ...options,

@@ -10,14 +10,15 @@ export default defineConfig({
   base: 'bombay',
   resolve: {
     alias: {
-      components: path.join(__dirname, 'src/components'),
-      constants: path.join(__dirname, 'src/constants'),
-      effects: path.join(__dirname, 'src/effects'),
-      hooks: path.join(__dirname, 'src/hooks'),
-      store: path.join(__dirname, 'src/store'),
-      styles: path.join(__dirname, 'src/styles'),
-      UI: path.join(__dirname, 'src/UI'),
-      utils: path.join(__dirname, 'src/utils'),
+      '@': path.resolve(__dirname, './src'),
+      // components: path.join(__dirname, 'src/components'),
+      // constants: path.join(__dirname, 'src/constants'),
+      // effects: path.join(__dirname, 'src/effects'),
+      // hooks: path.join(__dirname, 'src/hooks'),
+      // store: path.join(__dirname, 'src/store'),
+      // styles: path.join(__dirname, 'src/styles'),
+      // UI: path.join(__dirname, 'src/UI'),
+      // utils: path.join(__dirname, 'src/utils'),
     },
   },
 });

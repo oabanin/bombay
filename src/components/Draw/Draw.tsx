@@ -1,21 +1,28 @@
-import { memo } from 'react';
 import { useSelector } from 'react-redux';
 
-import { ENUM_GAME_STATE, ENUM_RESULTS, POSITION_RESULT_COLORS } from 'constants/specifications.ts';
-import { useDrawAnimation } from 'hooks/animations/useDrawAnimation.ts';
-import { useResultsAnimation } from 'hooks/animations/useResultsAnimation.ts';
-import { selectComputerPosition, selectGameState, selectPlayerPosition } from 'store/selectors.ts';
-import { PositionTitle } from 'UI/PositionTitle/PositionTitle.tsx';
-import { Typography } from 'UI/Typography/Typography.tsx';
+import {
+  ENUM_GAME_STATE,
+  ENUM_RESULTS,
+  POSITION_RESULT_COLORS,
+} from '@/constants/specifications.ts';
+import { useDrawAnimation } from '@/hooks/animations/useDrawAnimation.ts';
+import { useResultsAnimation } from '@/hooks/animations/useResultsAnimation.ts';
+import {
+  selectComputerPosition,
+  selectGameState,
+  selectPlayerPosition,
+} from '@/store/selectors.ts';
+import { PositionTitle } from '@/UI/PositionTitle/PositionTitle.tsx';
+import { Typography } from '@/UI/Typography/Typography.tsx';
 
 import s from './Draw.module.scss';
 
-export const Draw = memo(() => {
+export const Draw = () => {
   const gameState = useSelector(selectGameState);
   if (gameState === ENUM_GAME_STATE.game) return <DrawTitle />;
   if (gameState === ENUM_GAME_STATE.result) return <DrawResult />;
   return null;
-});
+};
 
 const DrawTitle = () => {
   const computerPosition = useSelector(selectComputerPosition);

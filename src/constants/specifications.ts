@@ -1,19 +1,24 @@
 export const INITIAL_BALANCE = 5000;
+
 export const BET_STEP = 500;
+
 export const POSITIONS_MULTIPLIERS = {
   1: 14,
   2: 3,
 };
+
 export enum ENUM_RESULTS {
   win = 'win',
   lose = 'lose',
   tie = 'tie',
 }
+
 export enum ENUM_GAME_STATE {
   placeBet = 'placeBet',
   game = 'game',
   result = 'result',
 }
+
 export enum ENUM_POSITIONS {
   rock = 'rock',
   paper = 'paper',
@@ -54,4 +59,5 @@ export const WIN_MAP = {
   scissors: [ENUM_POSITIONS.paper],
   // superhand: [ENUM_POSITIONS.paper, ENUM_POSITIONS.rock, ENUM_POSITIONS.paper],
 };
+
 export const COMPUTER_POSITION_CHOICES = POSITION_ITEMS.map(({ position }) => position);
