@@ -15,6 +15,7 @@ Welcome to the Bombay game repository! Bombay is a ReactJS-based Rock Scissors P
 - **Maximum Positions:** The game supports up to two positions by default.
 - **Win Map:** Defines winning combinations for each position.
 - **Computer Position Choices:** The computer can choose from available positions.
+- **Tie:** A tie with two or more selected positions is considered a loss. If only one position is selected, the bet is returned to the balance.
 
 ## Game Deployment
 
@@ -42,7 +43,7 @@ To run the game locally, follow these steps:
    npm run dev
    ```
 
-4. Open your browser and navigate to [http://localhost:3000](http://localhost:3000) to play the game.
+4. Open your browser and navigate to [http://localhost:5173/bombay](http://localhost:5173/bombay) to play the game.
 
 ## Customizing Game Rules
 
