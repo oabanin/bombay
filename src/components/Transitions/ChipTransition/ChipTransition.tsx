@@ -6,6 +6,7 @@ import { gsap } from 'gsap';
 import { ENUM_POSITIONS } from '@/constants/specifications.ts';
 
 import s from './ChipTransition.module.scss';
+
 export const ChipTransition = ({
   children,
   position,
@@ -14,6 +15,7 @@ export const ChipTransition = ({
   position: ENUM_POSITIONS;
 }) => {
   const ref = useRef<HTMLDivElement>(null);
+
   useGSAP(async () => {
     await gsap.fromTo(
       ref.current,

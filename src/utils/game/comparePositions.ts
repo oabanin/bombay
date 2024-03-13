@@ -7,6 +7,7 @@ export const comparePositions = (
   let result = ENUM_RESULTS.lose;
   let position = playerPositions[0];
   if (!computerPosition) return { position, result };
+
   for (const playerPosition of playerPositions) {
     if (WIN_MAP[playerPosition].includes(computerPosition)) {
       return { position: playerPosition, result: ENUM_RESULTS.win };
@@ -17,5 +18,6 @@ export const comparePositions = (
       position = playerPosition;
     }
   }
+
   return { position, result };
 };

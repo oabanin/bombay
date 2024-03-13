@@ -5,6 +5,7 @@ import { gsap } from 'gsap';
 
 export const useResultsAnimation = () => {
   const ref = useRef<HTMLDivElement>(null);
+
   useGSAP(() => {
     gsap.fromTo(
       ref.current,
@@ -12,5 +13,6 @@ export const useResultsAnimation = () => {
       { scale: 1, opacity: 1, duration: 0.5, ease: 'sine.inOut' },
     );
   });
+
   return ref;
 };

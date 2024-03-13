@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 
-import { TypeColor } from '../Typography/Typography.tsx';
-import { Typography } from '../Typography/Typography.tsx';
+import { TypeColor } from '@/UI/Typography/Typography.tsx';
+import { Typography } from '@/UI/Typography/Typography.tsx';
 
 export const PositionTitle = ({
   text,

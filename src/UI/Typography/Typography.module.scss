@@ -5,21 +5,27 @@
   &.small {
     font-size: var(--font-size-s);
   }
+
   &.medium {
     font-size: var(--font-size-m);
   }
+
   &.large {
     font-size: var(--font-size-lg);
   }
+
   &.xl {
     font-size: var(--font-size-xl);
   }
+
   &.xl2 {
     font-size: var(--font-size-2xl);
   }
+
   &.xl3 {
     font-size: var(--font-size-3xl);
   }
+
   &.xl4 {
     font-size: var(--font-size-4xl);
   }
@@ -27,18 +33,23 @@
   &.white {
     color: var(--color-white);
   }
+
   &.brown {
     color: var(--color-brown);
   }
+
   &.red {
     color: var(--color-red-lighter);
   }
+
   &.green {
     color: var(--color-green-lighter);
   }
+
   &.blue {
     color: var(--color-blue-lighter);
   }
+
   &.fontSecondary {
     font-family: var(--font-family-secondary);
   }

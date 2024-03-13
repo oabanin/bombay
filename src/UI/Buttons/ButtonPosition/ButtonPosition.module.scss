@@ -27,6 +27,7 @@ $px: mixins.rem(4px);
     opacity: 0;
     transition: all 0.5s ease-in-out;
   }
+
   &.active {
     &:before {
       opacity: 1;
@@ -40,6 +41,7 @@ $px: mixins.rem(4px);
       border: mixins.rem(4px) solid var(--color-red-lighter);
     }
   }
+
   &.green {
     border-color: var(--color-green);
     background-color: var(--color-green-darker);
@@ -47,6 +49,7 @@ $px: mixins.rem(4px);
       border: mixins.rem(4px) solid var(--color-green-lighter);
     }
   }
+
   &.blue {
     border-color: var(--color-blue);
     background-color: var(--color-blue-darker);

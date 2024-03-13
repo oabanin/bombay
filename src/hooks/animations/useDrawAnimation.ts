@@ -7,6 +7,7 @@ export const useDrawAnimation = () => {
   const computerRef = useRef<HTMLDivElement>(null);
   const vsRef = useRef<HTMLDivElement>(null);
   const playerRef = useRef<HTMLDivElement>(null);
+
   useGSAP(() => {
     gsap
       .timeline()
@@ -22,5 +23,6 @@ export const useDrawAnimation = () => {
         { yPercent: 0, opacity: 1, duration: 0.5 },
       );
   });
+
   return { computerRef, vsRef, playerRef };
 };
