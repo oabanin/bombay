@@ -1,4 +1,4 @@
-import { memo, useCallback, useState } from 'react';
+import { memo, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import { ENUM_GAME_STATE, ENUM_POSITIONS, ENUM_RESULTS } from '@/constants/specifications.ts';
@@ -23,7 +23,7 @@ export const Play = () => {
   const dispatch = useAppDispatch();
   const [isDisabled, setIsDisabled] = useState(false);
 
-  const handlePlay = useCallback(async () => {
+  const handlePlay = async () => {
     setIsDisabled(true);
     await playButtonTimeline();
 
@@ -55,7 +55,7 @@ export const Play = () => {
     dispatch(setGameState(ENUM_GAME_STATE.result));
     result === ENUM_RESULTS.win && dispatch(addWin());
     setIsDisabled(false);
-  }, [dispatch]);
+  };
 
   const isButtonDisabled =
     gameState === ENUM_GAME_STATE.game ||

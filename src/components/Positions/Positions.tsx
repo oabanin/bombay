@@ -9,6 +9,7 @@ import {
   MAX_POSITIONS,
   POSITION_ITEMS,
 } from '@/constants/specifications.ts';
+import { chipNotAllowed } from '@/effects/animations/chipNotAllowed.ts';
 import { sound } from '@/effects/sounds/sound.ts';
 import { addBet } from '@/store/gameSlice.ts';
 import { useAppDispatch, useAppSelector } from '@/store/hooks.ts';
@@ -41,8 +42,10 @@ export const Positions = () => {
   );
 
   const onDisabled = useCallback(
-    (isDisabled: boolean) => () => {
-      isDisabled && sound.play('notAllowed');
+    (isDisabled: boolean, position: ENUM_POSITIONS) => async () => {
+      if (!isDisabled) return;
+      sound.play('notAllowed');
+      await chipNotAllowed(position);
     },
     [],
   );
@@ -57,7 +60,7 @@ export const Positions = () => {
         return (
           <div
             key={`${index}${item.position}`}
-            onClick={onDisabled(isDisabled)}
+            onClick={onDisabled(isDisabled, item.position)}
             className={ENUM_ELEMENT_SELECTORS.position}
           >
             <ButtonPosition
