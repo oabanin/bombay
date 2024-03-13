@@ -47,7 +47,7 @@ export const POSITION_ITEMS = [
   },
   // {
   //   position: ENUM_POSITIONS.superHand,
-  //   color: 'red' as const,
+  //   color: 'blue' as const,
   // },
 ];
 
@@ -57,7 +57,7 @@ export const WIN_MAP = {
   rock: [ENUM_POSITIONS.scissors],
   paper: [ENUM_POSITIONS.rock],
   scissors: [ENUM_POSITIONS.paper],
-  // superHand: [ENUM_POSITIONS.paper, ENUM_POSITIONS.rock, ENUM_POSITIONS.paper],
+  // superHand: [ENUM_POSITIONS.scissors, ENUM_POSITIONS.rock, ENUM_POSITIONS.paper],
 };
 
 export const COMPUTER_POSITION_CHOICES = POSITION_ITEMS.map(({ position }) => position);
