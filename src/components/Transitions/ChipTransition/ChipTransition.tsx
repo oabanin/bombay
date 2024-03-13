@@ -3,6 +3,7 @@ import { ReactNode, useRef } from 'react';
 import { useGSAP } from '@gsap/react';
 import { gsap } from 'gsap';
 
+import { ENUM_ELEMENT_SELECTORS } from '@/constants/elementSelectors.ts';
 import { ENUM_POSITIONS } from '@/constants/specifications.ts';
 
 import s from './ChipTransition.module.scss';
@@ -31,7 +32,11 @@ export const ChipTransition = ({
     );
   });
   return (
-    <div data-position={position} className={`${s.container} bombay-chip-container`} ref={ref}>
+    <div
+      data-position={position}
+      className={`${s.container} ${ENUM_ELEMENT_SELECTORS.chipContainer}`}
+      ref={ref}
+    >
       {children}
     </div>
   );

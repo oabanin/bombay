@@ -6,6 +6,7 @@ import { PickPositions } from '@/components/PickPositions/PickPositions.tsx';
 import { Play } from '@/components/Play/Play.tsx';
 import { Positions } from '@/components/Positions/Positions.tsx';
 import { Results } from '@/components/Results/Results.tsx';
+import { ENUM_ELEMENT_SELECTORS } from '@/constants/elementSelectors.ts';
 import { useInitialAnimation } from '@/hooks/animations/useInitialAnimation.ts';
 import { store } from '@/store/store.ts';
 
@@ -27,13 +28,13 @@ function App() {
           <Results />
         </div>
         <div className={s.pickPositionsSpace} />
-        <div id="bombay-pick-positions" className={s.pickPositions}>
+        <div id={ENUM_ELEMENT_SELECTORS.pickPositions} className={s.pickPositions}>
           <PickPositions />
         </div>
         <div className={s.positionsSpace} />
         <Positions />
         <div className={s.playSpace} />
-        <div id="bombay-play-container">
+        <div id={ENUM_ELEMENT_SELECTORS.playContainer}>
           <Play />
         </div>
         <div className={s.bottomSpace} />

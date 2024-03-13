@@ -42,13 +42,19 @@ const ResultsText = () => {
   const isWin = checkPositionResult(result, bets);
   const bet = numeral(totalBet).format('0.00');
 
+  const leftPart = `You ${isWin ? 'win' : 'lose'}`;
+  const rightPart = () => {
+    if (!isWin || isTie) return bet;
+    return countWin;
+  };
+
   return (
     <div ref={ref}>
       <Typography as="span" size="xl" color="brown">
-        You {isWin ? 'win' : 'lose'}
+        {leftPart}
       </Typography>{' '}
       <Typography as="span" size="xl" color="white">
-        {isWin ? (isTie ? bet : countWin) : bet}
+        {rightPart()}
       </Typography>
     </div>
   );

@@ -2,6 +2,7 @@ import { useCallback } from 'react';
 import { useSelector } from 'react-redux';
 
 import { ChipTransition } from '@/components/Transitions/ChipTransition/ChipTransition.tsx';
+import { ENUM_ELEMENT_SELECTORS } from '@/constants/elementSelectors.ts';
 import {
   ENUM_GAME_STATE,
   ENUM_POSITIONS,
@@ -57,7 +58,7 @@ export const Positions = () => {
           <div
             key={`${index}${item.position}`}
             onClick={onDisabled(isDisabled)}
-            className="bombay-position"
+            className={ENUM_ELEMENT_SELECTORS.position}
           >
             <ButtonPosition
               active={gameState === ENUM_GAME_STATE.result && position === item.position}

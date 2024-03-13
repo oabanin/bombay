@@ -23,7 +23,7 @@ export enum ENUM_POSITIONS {
   rock = 'rock',
   paper = 'paper',
   scissors = 'scissors',
-  // superhand = 'superhand',
+  // superHand = 'superHand',
 }
 
 export const POSITION_RESULT_COLORS = {
@@ -46,7 +46,7 @@ export const POSITION_ITEMS = [
     color: 'red' as const,
   },
   // {
-  //   position: ENUM_POSITIONS.superhand,
+  //   position: ENUM_POSITIONS.superHand,
   //   color: 'red' as const,
   // },
 ];
@@ -57,7 +57,7 @@ export const WIN_MAP = {
   rock: [ENUM_POSITIONS.scissors],
   paper: [ENUM_POSITIONS.rock],
   scissors: [ENUM_POSITIONS.paper],
-  // superhand: [ENUM_POSITIONS.paper, ENUM_POSITIONS.rock, ENUM_POSITIONS.paper],
+  // superHand: [ENUM_POSITIONS.paper, ENUM_POSITIONS.rock, ENUM_POSITIONS.paper],
 };
 
 export const COMPUTER_POSITION_CHOICES = POSITION_ITEMS.map(({ position }) => position);

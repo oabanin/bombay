@@ -1,6 +1,6 @@
 # Rock Scissors Paper Game - Bombay
 
-Welcome to the Bombay game repository! Bombay is a ReactJS-based Rock Scissors Paper game where you can enjoy the classic gameplay with a twist. The game rules can be easily customized through the `specifications.ts` file, allowing you to add new features such as the commented-out "superhand."
+Welcome to the Bombay game repository! Bombay is a ReactJS-based Rock Scissors Paper game where you can enjoy the classic gameplay with a twist. The game rules can be easily customized through the `specifications.ts` file, allowing you to add new features such as the commented-out "superHand."
 
 ## Game Features
 
@@ -47,7 +47,7 @@ To run the game locally, follow these steps:
 
 ## Customizing Game Rules
 
-Adjust the game rules by modifying the `src/constants/specifications.ts` file. You can uncomment the "superhand" or make other changes to enhance your gaming experience.
+Adjust the game rules by modifying the `src/constants/specifications.ts` file. You can uncomment the "superHand" or make other changes to enhance your gaming experience.
 
 ## Available Scripts
 

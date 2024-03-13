@@ -1,5 +1,6 @@
 import { Selector } from '@reduxjs/toolkit';
 
+import { ENUM_ELEMENT_SELECTORS } from '@/constants/elementSelectors.ts';
 import { useAppSelector } from '@/store/hooks.ts';
 import { selectBalanceCalculated, selectTotalBet, selectWin } from '@/store/selectors.ts';
 import { RootState } from '@/store/store.ts';
@@ -10,7 +11,7 @@ import s from './Header.module.scss';
 
 export const Header = () => {
   return (
-    <header id="bombay-header" className={s.container}>
+    <header id={ENUM_ELEMENT_SELECTORS.header} className={s.container}>
       <HeaderItem
         className={s.balance}
         title="Balance"
