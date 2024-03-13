@@ -18,10 +18,10 @@ export const Header = () => {
 };
 
 const Counter = ({ selector }: { selector: Selector<RootState, number> }) => {
-  const balance = useAppSelector(selector);
+  const value = useAppSelector(selector);
   return (
     <Typography as="span" color="white">
-      {balance}
+      {value}
     </Typography>
   );
 };

@@ -6,7 +6,7 @@ import { calculateTotalBet } from '../utils/game/calculateTotalBet.ts';
 import { comparePositions } from '../utils/game/comparePositions.ts';
 import { RootState } from './store';
 export const selectBets = (state: RootState) => state.game.bets;
-const selectBalance = (state: RootState) => state.game.balance;
+export const selectBalance = (state: RootState) => state.game.balance;
 export const selectGameState = (state: RootState) => state.game.gameState;
 export const selectComputerPosition = (state: RootState) => state.game.computerPosition;
 export const selectWin = (state: RootState) => state.game.win;
