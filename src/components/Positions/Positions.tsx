@@ -21,6 +21,7 @@ import {
 } from '@/store/selectors.ts';
 import { ButtonPosition } from '@/UI/Buttons/ButtonPosition/ButtonPosition.tsx';
 import { Chip } from '@/UI/Chip/Chip.tsx';
+import { debounce } from '@/utils/debounce.ts';
 import { calculatePositionCount } from '@/utils/game/calculatePositions.ts';
 import { getCoinValue } from '@/utils/game/getCoinValue.ts';
 
@@ -34,10 +35,10 @@ export const Positions = () => {
   const balance = useAppSelector(selectBalanceCalculated);
 
   const handleClick = useCallback(
-    async (position: string) => {
+    debounce(async (position: string) => {
       sound.play('bet');
       dispatch(addBet(position as ENUM_POSITIONS));
-    },
+    }, 100),
     [dispatch],
   );
 
