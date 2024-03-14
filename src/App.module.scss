@@ -17,12 +17,12 @@
 }
 
 .draw {
-  min-height: mixins.rem(52px);
+  min-height: mixins.rem(53px);
   letter-spacing: mixins.rem(1.3px);
 }
 
 .resultsSpace {
-  max-height: mixins.rem(10px);
+  max-height: mixins.rem(19px);
   flex: 1;
 }
 
@@ -32,12 +32,12 @@
 }
 
 .pickPositionsSpace {
-  max-height: mixins.rem(40px);
+  max-height: mixins.rem(39px);
   flex: 1;
 }
 
 .pickPositions {
-  min-height: mixins.rem(18px);
+  min-height: mixins.rem(19px);
   grid-column: span 3;
   text-align: center;
 }
