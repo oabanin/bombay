@@ -42,7 +42,7 @@ const DrawTitle = () => {
         </Typography>
       </div>
       <div ref={playerRef}>
-        <PositionTitle className={s.playerPosition} text={position} />
+        <PositionTitle text={position} />
       </div>
     </div>
   );

@@ -11,9 +11,6 @@
 }
 
 .computerPosition {
-  justify-self: end;
-}
-
-.playerPosition {
-  justify-self: start;
+  display: flex;
+  justify-content: flex-end;
 }
