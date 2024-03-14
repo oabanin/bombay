@@ -1,43 +1,22 @@
-import { ReactNode, useRef } from 'react';
-
-import { useGSAP } from '@gsap/react';
-import { gsap } from 'gsap';
+import { memo, ReactNode } from 'react';
 
 import { ENUM_ELEMENT_SELECTORS } from '@/constants/elementSelectors.ts';
 import { ENUM_POSITIONS } from '@/constants/specifications.ts';
+import { useChipTransition } from '@/hooks/animations/useChipTransition.tsx';
 
 import s from './ChipTransition.module.scss';
 
-export const ChipTransition = ({
-  children,
-  position,
-}: {
-  children: ReactNode;
-  position: ENUM_POSITIONS;
-}) => {
-  const ref = useRef<HTMLDivElement>(null);
-
-  useGSAP(async () => {
-    await gsap.fromTo(
-      ref.current,
-      {
-        opacity: 0,
-        yPercent: 300,
-      },
-      {
-        opacity: 1,
-        yPercent: 0,
-        duration: 0.1,
-      },
+export const ChipTransition = memo(
+  ({ children, position }: { children: ReactNode; position: ENUM_POSITIONS }) => {
+    const ref = useChipTransition();
+    return (
+      <div
+        data-position={position}
+        className={`${s.container} ${ENUM_ELEMENT_SELECTORS.chipContainer}`}
+        ref={ref}
+      >
+        {children}
+      </div>
     );
-  });
-  return (
-    <div
-      data-position={position}
-      className={`${s.container} ${ENUM_ELEMENT_SELECTORS.chipContainer}`}
-      ref={ref}
-    >
-      {children}
-    </div>
-  );
-};
+  },
+);

@@ -1,8 +1,9 @@
 import { createSelector } from '@reduxjs/toolkit';
 import numeral from 'numeral';
 
-import { ENUM_POSITIONS } from '@/constants/specifications.ts';
+import { ENUM_POSITIONS, MAX_POSITIONS } from '@/constants/specifications.ts';
 import { RootState } from '@/store/store.ts';
+import { calculatePositionCount } from '@/utils/game/calculatePositions.ts';
 import { calculateTotalBet } from '@/utils/game/calculateTotalBet.ts';
 import { comparePositions } from '@/utils/game/comparePositions.ts';
 
@@ -41,4 +42,9 @@ export const selectBalanceCalculated = createSelector(
 export const selectIsBalanceZero = createSelector(
   [selectBalanceCalculated],
   (balance) => balance <= 0,
+);
+
+export const selectIsMaxPositionDisabled = createSelector(
+  [selectBets],
+  (bets) => calculatePositionCount(bets) >= MAX_POSITIONS,
 );
