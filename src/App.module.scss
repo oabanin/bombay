@@ -4,7 +4,7 @@
 .main {
   display: flex;
   width: 100%;
-  min-height: 100vh;
+  flex: 1;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
@@ -22,7 +22,7 @@
 }
 
 .resultsSpace {
-  max-height: mixins.rem(19px);
+  max-height: mixins.rem(7px);
   flex: 1;
 }
 
@@ -32,7 +32,7 @@
 }
 
 .pickPositionsSpace {
-  max-height: mixins.rem(39px);
+  max-height: mixins.rem(42px);
   flex: 1;
 }
 
@@ -43,16 +43,13 @@
 }
 
 .positionsSpace {
-  max-height: mixins.rem(25px);
+  min-height: mixins.rem(10px);
+  max-height: mixins.rem(24px);
   flex: 1;
 }
 
 .playSpace {
-  max-height: mixins.rem(72px);
-  flex: 1;
-}
-
-.bottomSpace {
-  max-height: mixins.rem(72px);
+  min-height: mixins.rem(10px);
+  max-height: mixins.rem(73px);
   flex: 1;
 }

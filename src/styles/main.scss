@@ -7,7 +7,7 @@
 *:before {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  box-sizing: border-box; /* Safari/Chrome, other WebKit */ /* Firefox, other Gecko */
+  box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-smoothing: antialiased;
@@ -80,7 +80,10 @@ body {
 }
 
 #root {
+  display: flex;
   min-height: 100vh;
+  flex: 1;
+  flex-direction: column;
 }
 
 button {

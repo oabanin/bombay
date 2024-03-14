@@ -37,7 +37,6 @@ function App() {
         <div id={ENUM_ELEMENT_SELECTORS.playContainer}>
           <Play />
         </div>
-        <div className={s.bottomSpace} />
       </main>
     </Provider>
   );
