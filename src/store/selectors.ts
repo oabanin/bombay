@@ -1,5 +1,5 @@
 import { createSelector } from '@reduxjs/toolkit';
-import Decimal from 'decimal.js';
+import { Decimal } from 'decimal.js';
 
 import { ENUM_POSITIONS, MAX_POSITIONS } from '@/constants/specifications.ts';
 import { RootState } from '@/store/store.ts';

@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import Decimal from 'decimal.js';
+import { Decimal } from 'decimal.js';
 
 import {
   BET_STEP,

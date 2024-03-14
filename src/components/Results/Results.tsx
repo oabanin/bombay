@@ -1,7 +1,7 @@
 import { useEffect, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 
-import Decimal from 'decimal.js';
+import { Decimal } from 'decimal.js';
 
 import { ENUM_GAME_STATE, ENUM_RESULTS } from '@/constants/specifications.ts';
 import { resultSound } from '@/effects/sounds/resultSound.ts';
