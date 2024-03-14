@@ -2,7 +2,7 @@ import { gsap } from 'gsap';
 
 import { ENUM_ELEMENT_SELECTORS } from '@/constants/elementSelectors.ts';
 import { ENUM_POSITIONS, ENUM_RESULTS } from '@/constants/specifications.ts';
-import { checkPositionResult } from '@/utils/game/checkPositionResult.ts';
+import { GameUtils } from '@/utils/game/gameUtils.ts';
 
 const options = { duration: 0.3, opacity: 0 };
 
@@ -11,7 +11,7 @@ export const chipDisappear = async (
   position: ENUM_POSITIONS,
   bets: Record<ENUM_POSITIONS, number>,
 ) => {
-  const isWin = checkPositionResult(result, bets);
+  const isWin = GameUtils.checkPositionResult(result, bets);
 
   const resultBet = gsap.to(
     `.${ENUM_ELEMENT_SELECTORS.chipContainer}[data-position="${position}"]`,

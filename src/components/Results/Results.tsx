@@ -13,9 +13,7 @@ import {
   selectTotalBet,
 } from '@/store/selectors.ts';
 import { Typography } from '@/UI/Typography/Typography.tsx';
-import { calculatePositionCount } from '@/utils/game/calculatePositions.ts';
-import { calculateReturn } from '@/utils/game/calculateReturn.ts';
-import { checkPositionResult } from '@/utils/game/checkPositionResult.ts';
+import { GameUtils } from '@/utils/game/gameUtils.ts';
 
 export const Results = () => {
   const gameState = useSelector(selectGameState);
@@ -30,16 +28,16 @@ const ResultsText = () => {
   const { result, position } = useSelector(selectPlayerPosition);
 
   useEffect(() => {
-    const positionsCount = calculatePositionCount(bets);
+    const positionsCount = GameUtils.calculatePositionCount(bets);
     resultSound(result, positionsCount);
   }, []);
 
   const countWin = useMemo(() => {
-    return calculateReturn(bets, position);
+    return GameUtils.calculateReturn(bets, position);
   }, [bets, position]);
 
   const isTie = result === ENUM_RESULTS.tie;
-  const isWin = checkPositionResult(result, bets);
+  const isWin = GameUtils.checkPositionResult(result, bets);
 
   const bet = new Decimal(totalBet).toFixed(2);
 
@@ -48,8 +46,6 @@ const ResultsText = () => {
     if (!isWin || isTie) return bet;
     return countWin.toFixed(2);
   };
-
-  console.log(rightPart());
 
   return (
     <div ref={ref}>

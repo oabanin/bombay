@@ -19,7 +19,7 @@ import { ButtonPosition } from '@/UI/Buttons/ButtonPosition/ButtonPosition.tsx';
 import { Chip } from '@/UI/Chip/Chip.tsx';
 import { TypeColor } from '@/UI/Typography/Typography.tsx';
 import { debounce } from '@/utils/debounce.ts';
-import { getCoinValue } from '@/utils/game/getCoinValue.ts';
+import { GameUtils } from '@/utils/game/gameUtils.ts';
 
 import s from './Positions.module.scss';
 
@@ -100,7 +100,7 @@ const ButtonPositionContainer = memo(
           bet={
             bets[position] && (
               <ChipTransition position={position}>
-                <Chip value={getCoinValue(bets[position])} />
+                <Chip value={GameUtils.getCoinValue(bets[position])} />
               </ChipTransition>
             )
           }

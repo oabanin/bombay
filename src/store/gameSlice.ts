@@ -8,11 +8,7 @@ import {
   ENUM_RESULTS,
   INITIAL_BALANCE,
 } from '@/constants/specifications.ts';
-import { calculateBalance } from '@/utils/game/calculateBalance.ts';
-import { calculatePositionCount } from '@/utils/game/calculatePositions.ts';
-import { calculateReturn } from '@/utils/game/calculateReturn.ts';
-import { calculateTotalBet } from '@/utils/game/calculateTotalBet.ts';
-import { comparePositions } from '@/utils/game/comparePositions.ts';
+import { GameUtils } from '@/utils/game/gameUtils.ts';
 
 interface GameState {
   gameState: ENUM_GAME_STATE;
@@ -35,8 +31,8 @@ export const gameSlice = createSlice({
   initialState,
   reducers: {
     addBet: (state, action: PayloadAction<ENUM_POSITIONS>) => {
-      const calculatedBets = calculateTotalBet(state.bets);
-      const calculatedBalance = calculateBalance(state.balance, calculatedBets);
+      const calculatedBets = GameUtils.calculateTotalBet(state.bets);
+      const calculatedBalance = GameUtils.calculateBalance(state.balance, calculatedBets);
       if (BET_STEP > calculatedBalance) return;
       const currentBet = state.bets[action.payload];
       const BET_STEP_Decimal = new Decimal(BET_STEP);
@@ -57,21 +53,21 @@ export const gameSlice = createSlice({
       state.computerPosition = action.payload;
     },
     clear: (state) => {
-      const { result, position } = comparePositions(
+      const { result, position } = GameUtils.comparePositions(
         Object.keys(state.bets) as ENUM_POSITIONS[],
         state.computerPosition,
       );
-      const totalBet = calculateTotalBet(state.bets);
-      const calculatedBalance = calculateBalance(state.balance, totalBet);
+      const totalBet = GameUtils.calculateTotalBet(state.bets);
+      const calculatedBalance = GameUtils.calculateBalance(state.balance, totalBet);
 
       if (result === ENUM_RESULTS.win) {
-        const returnAmount = calculateReturn(state.bets, position);
+        const returnAmount = GameUtils.calculateReturn(state.bets, position);
         const calculatedBalanceDecimal = new Decimal(calculatedBalance);
         const returnAmountDecimal = new Decimal(returnAmount);
 
         state.balance = calculatedBalanceDecimal.plus(returnAmountDecimal).toNumber() || 0;
       } else if (result === ENUM_RESULTS.tie) {
-        if (calculatePositionCount(state.bets) > 1) {
+        if (GameUtils.calculatePositionCount(state.bets) > 1) {
           state.balance = calculatedBalance;
         }
       } else {

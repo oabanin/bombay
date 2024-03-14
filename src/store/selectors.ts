@@ -3,9 +3,7 @@ import Decimal from 'decimal.js';
 
 import { ENUM_POSITIONS, MAX_POSITIONS } from '@/constants/specifications.ts';
 import { RootState } from '@/store/store.ts';
-import { calculatePositionCount } from '@/utils/game/calculatePositions.ts';
-import { calculateTotalBet } from '@/utils/game/calculateTotalBet.ts';
-import { comparePositions } from '@/utils/game/comparePositions.ts';
+import { GameUtils } from '@/utils/game/gameUtils.ts';
 
 export const selectBets = (state: RootState) => state.game.bets;
 
@@ -20,12 +18,12 @@ export const selectWin = (state: RootState) => state.game.win;
 export const selectPlayerPosition = createSelector(
   [selectBets, selectComputerPosition],
   (bets, computerPosition) => {
-    return comparePositions(Object.keys(bets) as ENUM_POSITIONS[], computerPosition);
+    return GameUtils.comparePositions(Object.keys(bets) as ENUM_POSITIONS[], computerPosition);
   },
 );
 
 export const selectTotalBet = createSelector([selectBets], (bets) => {
-  return calculateTotalBet(bets);
+  return GameUtils.calculateTotalBet(bets);
 });
 
 export const selectIsBetZero = createSelector([selectTotalBet], (totalBet) => {
@@ -48,5 +46,5 @@ export const selectIsBalanceZero = createSelector(
 
 export const selectIsMaxPositionDisabled = createSelector(
   [selectBets],
-  (bets) => calculatePositionCount(bets) >= MAX_POSITIONS,
+  (bets) => GameUtils.calculatePositionCount(bets) >= MAX_POSITIONS,
 );

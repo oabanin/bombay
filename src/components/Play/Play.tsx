@@ -12,9 +12,7 @@ import { useAppDispatch } from '@/store/hooks.ts';
 import { selectGameState, selectIsBetZero } from '@/store/selectors.ts';
 import { store } from '@/store/store.ts';
 import { ButtonPlay } from '@/UI/Buttons/ButtonPlay/ButtonPlay.tsx';
-import { calculatePositionCount } from '@/utils/game/calculatePositions.ts';
-import { comparePositions } from '@/utils/game/comparePositions.ts';
-import { getRandomPosition } from '@/utils/game/getRandomPosition.ts';
+import { GameUtils } from '@/utils/game/gameUtils.ts';
 import { sleep } from '@/utils/sleep.ts';
 
 export const Play = () => {
@@ -30,11 +28,11 @@ export const Play = () => {
 
     const { game } = store.getState();
     if (game.gameState === ENUM_GAME_STATE.result) {
-      const { result, position } = comparePositions(
+      const { result, position } = GameUtils.comparePositions(
         Object.keys(game.bets) as ENUM_POSITIONS[],
         game.computerPosition,
       );
-      const positionsCount = calculatePositionCount(game.bets);
+      const positionsCount = GameUtils.calculatePositionCount(game.bets);
       clearSound(result, positionsCount);
       await chipDisappear(result, position, game.bets);
       dispatch(clear());
@@ -46,8 +44,8 @@ export const Play = () => {
     sound.play('play');
     await pickPositionsHide();
     dispatch(setGameState(ENUM_GAME_STATE.game));
-    const computerPosition = getRandomPosition();
-    const { result } = comparePositions(
+    const computerPosition = GameUtils.getRandomPosition();
+    const { result } = GameUtils.comparePositions(
       Object.keys(game.bets) as ENUM_POSITIONS[],
       computerPosition,
     );
