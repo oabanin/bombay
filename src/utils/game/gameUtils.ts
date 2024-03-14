@@ -27,8 +27,8 @@ export class GameUtils {
     if (multiplier) {
       const multiplierDecimal = new Decimal(multiplier);
       const betsPositionDecimal = new Decimal(bets[position]);
-      const winReturnDecimal = multiplierDecimal.times(betsPositionDecimal).toNumber();
-      return winReturnDecimal || 0;
+      const winReturn = multiplierDecimal.times(betsPositionDecimal).toNumber();
+      return winReturn || 0;
     } else {
       return bets[position] || 0;
     }
