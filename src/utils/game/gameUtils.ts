@@ -49,6 +49,7 @@ export class GameUtils {
     bets: Record<ENUM_POSITIONS, number>,
   ): boolean {
     const isTie = result === ENUM_RESULTS.tie;
+
     return result === ENUM_RESULTS.win || (isTie && GameUtils.calculatePositionCount(bets) === 1);
   }
 

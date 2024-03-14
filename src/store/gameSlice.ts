@@ -36,6 +36,7 @@ export const gameSlice = createSlice({
       if (BET_STEP > calculatedBalance) return;
       const currentBet = state.bets[action.payload];
       const BET_STEP_Decimal = new Decimal(BET_STEP);
+
       if (currentBet) {
         const currentBetDecimal = new Decimal(currentBet);
         state.bets[action.payload] = currentBetDecimal.plus(BET_STEP_Decimal).toNumber() || 0;
@@ -64,7 +65,6 @@ export const gameSlice = createSlice({
         const returnAmount = GameUtils.calculateReturn(state.bets, position);
         const calculatedBalanceDecimal = new Decimal(calculatedBalance);
         const returnAmountDecimal = new Decimal(returnAmount);
-
         state.balance = calculatedBalanceDecimal.plus(returnAmountDecimal).toNumber() || 0;
       } else if (result === ENUM_RESULTS.tie) {
         if (GameUtils.calculatePositionCount(state.bets) > 1) {

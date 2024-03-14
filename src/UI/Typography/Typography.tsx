@@ -33,6 +33,7 @@ export const Typography = memo(
       <Tag
         className={clsx(
           s.text,
+          font === 'secondary' && s.fontSecondary,
           size === 'small' && s.small,
           size === 'medium' && s.medium,
           size === 'large' && s.large,
@@ -45,7 +46,6 @@ export const Typography = memo(
           color === 'green' && s.green,
           color === 'blue' && s.blue,
           color === 'red' && s.red,
-          font === 'secondary' && s.fontSecondary,
           className,
         )}
       >
