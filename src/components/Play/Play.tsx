@@ -25,8 +25,8 @@ export const Play = () => {
   const handlePlay = useCallback(async () => {
     setIsDisabled(true);
     await playButtonTimeline();
-
     const { game } = store.getState();
+
     if (game.gameState === ENUM_GAME_STATE.result) {
       const { result, position } = GameUtils.comparePositions(
         Object.keys(game.bets) as ENUM_POSITIONS[],
