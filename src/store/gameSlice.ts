@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import numeral from 'numeral';
+import Decimal from 'decimal.js';
 
 import {
   BET_STEP,
@@ -39,9 +39,13 @@ export const gameSlice = createSlice({
       const calculatedBalance = calculateBalance(state.balance, calculatedBets);
       if (BET_STEP > calculatedBalance) return;
       const currentBet = state.bets[action.payload];
-      state.bets[action.payload] = currentBet
-        ? numeral(currentBet).add(BET_STEP).value() || 0
-        : BET_STEP;
+      const BET_STEP_Decimal = new Decimal(BET_STEP);
+      if (currentBet) {
+        const currentBetDecimal = new Decimal(currentBet);
+        state.bets[action.payload] = currentBetDecimal.plus(BET_STEP_Decimal).toNumber() || 0;
+      } else {
+        state.bets[action.payload] = BET_STEP;
+      }
     },
     setGameState: (state, action: PayloadAction<ENUM_GAME_STATE>) => {
       state.gameState = action.payload;
@@ -59,9 +63,13 @@ export const gameSlice = createSlice({
       );
       const totalBet = calculateTotalBet(state.bets);
       const calculatedBalance = calculateBalance(state.balance, totalBet);
+
       if (result === ENUM_RESULTS.win) {
-        state.balance =
-          numeral(calculatedBalance).add(calculateReturn(state.bets, position)).value() || 0;
+        const returnAmount = calculateReturn(state.bets, position);
+        const calculatedBalanceDecimal = new Decimal(calculatedBalance);
+        const returnAmountDecimal = new Decimal(returnAmount);
+
+        state.balance = calculatedBalanceDecimal.plus(returnAmountDecimal).toNumber() || 0;
       } else if (result === ENUM_RESULTS.tie) {
         if (calculatePositionCount(state.bets) > 1) {
           state.balance = calculatedBalance;
@@ -69,6 +77,7 @@ export const gameSlice = createSlice({
       } else {
         state.balance = calculatedBalance;
       }
+
       state.computerPosition = initialState.computerPosition;
       state.gameState = initialState.gameState;
       state.bets = initialState.bets;

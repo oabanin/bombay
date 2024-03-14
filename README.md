@@ -68,7 +68,7 @@ Adjust the game rules by modifying the `src/constants/specifications.ts` file. Y
 - **Redux Toolkit:** 2.2.1
 - **GSAP:** 3.12.5
 - **Howler:** 2.2.4
-- **Numeral:** 2.0.6
+- **Decimal.js:** 10.4.3
 
 For a complete list of dependencies, check the `package.json` file.
 

@@ -1,7 +1,7 @@
 import { useEffect, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 
-import numeral from 'numeral';
+import Decimal from 'decimal.js';
 
 import { ENUM_GAME_STATE, ENUM_RESULTS } from '@/constants/specifications.ts';
 import { resultSound } from '@/effects/sounds/resultSound.ts';
@@ -40,13 +40,16 @@ const ResultsText = () => {
 
   const isTie = result === ENUM_RESULTS.tie;
   const isWin = checkPositionResult(result, bets);
-  const bet = numeral(totalBet).format('0.00');
+
+  const bet = new Decimal(totalBet).toFixed(2);
 
   const leftPart = `You ${isWin ? 'win' : 'lose'}`;
   const rightPart = () => {
     if (!isWin || isTie) return bet;
-    return countWin;
+    return countWin.toFixed(2);
   };
+
+  console.log(rightPart());
 
   return (
     <div ref={ref}>

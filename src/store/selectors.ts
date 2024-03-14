@@ -1,5 +1,5 @@
 import { createSelector } from '@reduxjs/toolkit';
-import numeral from 'numeral';
+import Decimal from 'decimal.js';
 
 import { ENUM_POSITIONS, MAX_POSITIONS } from '@/constants/specifications.ts';
 import { RootState } from '@/store/store.ts';
@@ -35,7 +35,9 @@ export const selectIsBetZero = createSelector([selectTotalBet], (totalBet) => {
 export const selectBalanceCalculated = createSelector(
   [selectBalance, selectTotalBet],
   (balance, bet) => {
-    return numeral(balance).subtract(bet).value() || 0;
+    const balanceDecimal = new Decimal(balance);
+    const betDecimal = new Decimal(bet);
+    return balanceDecimal.minus(betDecimal).toNumber() || 0;
   },
 );
 
