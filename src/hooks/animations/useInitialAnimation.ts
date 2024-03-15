@@ -24,8 +24,8 @@ export const useInitialAnimation = () => {
       )
       .fromTo(
         `#${ENUM_ELEMENT_SELECTORS.playContainer}`,
-        { y: 25, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.5 },
+        { opacity: 0 },
+        { opacity: 1, duration: 0.5 },
       );
   });
 };
