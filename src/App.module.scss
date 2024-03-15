@@ -53,3 +53,9 @@
   max-height: mixins.rem(73px);
   flex: 1;
 }
+
+.bottomSpace {
+  min-height: mixins.rem(10px);
+  max-height: mixins.rem(10px);
+  flex: 1;
+}
